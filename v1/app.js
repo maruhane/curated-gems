@@ -71,10 +71,10 @@ function card(item, lang = 'zh') {
     </article>
   `;
 }
-  const desc = lang === 'zh' ? (item.summary_zh || '') : (item.summary_en || '');
-  const quote = lang === 'zh' ? (item.best_quote_zh || '') : (item.best_quote_en || '');
-  const quoteWrapper = lang === 'zh' ? '「」' : '""';
-  const aiSummaryLabel = lang === 'zh' ? 'AI总结：' : 'AI Summary: ';
+
+function esc(s) {
+  return String(s || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+}
   
   return `
     <article class="card">

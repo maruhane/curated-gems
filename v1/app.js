@@ -13,15 +13,15 @@ init();
 async function init() {
   try {
     // 构建data.json的URL，确保在GitHub Pages环境下正确工作
-let dataUrl;
-if (window.location.pathname.includes('/curated-gems/')) {
-    // GitHub Pages环境
-    dataUrl = window.location.origin + '/curated-gems/data.json';
-} else {
-    // 本地开发环境
-    dataUrl = './data.json';
-}
-const res = await fetch(dataUrl + '?_=' + Date.now(), { cache: 'no-store' });
+    let dataUrl;
+    if (window.location.pathname.includes('/curated-gems/')) {
+      // GitHub Pages环境
+      dataUrl = window.location.origin + '/curated-gems/data.json';
+    } else {
+      // 本地开发环境：修改为上一级目录
+      dataUrl = '../data.json';
+    }
+    const res = await fetch(dataUrl + '?_=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) throw new Error('load fail');
     const items = await res.json();
     window.currentData = items;
@@ -30,7 +30,9 @@ const res = await fetch(dataUrl + '?_=' + Date.now(), { cache: 'no-store' });
     listEl.innerHTML = '';
     const errorTexts = {
       zh: '数据加载失败',
-      en: 'Failed to load data'
+      en: 'Failed to load data',
+      ja: 'データの読み込みに失敗しました',
+      ko: '데이터 로드 실패'
     };
     emptyEl.textContent = errorTexts[window.currentLang || 'zh'];
     emptyEl.classList.remove('hidden');
@@ -38,41 +40,50 @@ const res = await fetch(dataUrl + '?_=' + Date.now(), { cache: 'no-store' });
 }
 
 function render(items) {
-  if (!items?.length) { 
+  if (!items?.length) {
     const emptyTexts = {
       zh: '暂无内容',
-      en: 'No content available'
+      en: 'No content available',
+      ja: 'コンテンツがありません',
+      ko: '내용 없음'
     };
     emptyEl.textContent = emptyTexts[window.currentLang || 'zh'];
-    emptyEl.classList.remove('hidden'); 
-    return; 
+    emptyEl.classList.remove('hidden');
+    return;
   }
   emptyEl.classList.add('hidden');
   listEl.innerHTML = items.map(item => card(item, window.currentLang || 'zh')).join('');
 }
 
 function renderWithLanguage(items, lang) {
-  if (!items?.length) { 
+  if (!items?.length) {
     const emptyTexts = {
       zh: '暂无内容',
-      en: 'No content available'
+      en: 'No content available',
+      ja: 'コンテンツがありません',
+      ko: '내용 없음'
     };
     emptyEl.textContent = emptyTexts[lang];
-    emptyEl.classList.remove('hidden'); 
-    return; 
+    emptyEl.classList.remove('hidden');
+    return;
   }
   emptyEl.classList.add('hidden');
   listEl.innerHTML = items.map(item => card(item, lang)).join('');
 }
-function card(item, lang = 'zh'){
-  const tagsArray = lang === 'zh' ? (item.tags_zh || item.tags || []) : (item.tags || []);
-  const tags = tagsArray.join(', ');
-  const title = lang === 'zh' ? (item.title_zh || item.title) : item.title;
-  const desc = lang === 'zh' ? (item.summary_zh || '') : (item.summary_en || '');
-  const quote = lang === 'zh' ? (item.best_quote_zh || '') : (item.best_quote_en || '');
-  const quoteWrapper = lang === 'zh' ? '「」' : '""';
-  const aiSummaryLabel = lang === 'zh' ? 'AI总结：' : 'AI Summary: ';
+
+function card(item, lang = 'zh') {
+  // 动态获取多语言字段，如果不存在则使用默认值
+  const title = item[`title_${lang}`] || item.title_zh || item.title;
+  const desc = item[`summary_${lang}`] || item.summary_zh || item.summary_en || '';
+  const quote = item[`best_quote_${lang}`] || item.best_quote_zh || item.best_quote_en || '';
+  const tagsArray = item[`tags_${lang}`] || item.tags_zh || item.tags || [];
   
+  const tags = tagsArray.join(', ');
+  
+  // 根据语言设置AI总结和引号
+  const aiSummaryLabel = { zh: 'AI总结：', en: 'AI Summary: ', ja: 'AIサマリー：', ko: 'AI 요약: ' }[lang] || 'AI Summary: ';
+  const quoteWrapper = { zh: '「」', en: '""', ja: '『』', ko: '""' }[lang] || '""';
+
   return `
     <article class="card">
       <h3><a href="${item.link}" target="_blank" rel="noopener">${esc(title)}</a></h3>

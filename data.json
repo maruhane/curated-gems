@@ -36,5 +36,27 @@
     "best_quote_zh": "真正的財富不僅僅是銀行帳戶裡的錢，而是時間、社交、心理、身體和金錢這五種財富的組合。",
     "best_quote_ja": "本当の富は銀行口座の数字だけではなく、時間、社会、心理、身体、経済の五つの側面からなる組み合わせだ。",
     "best_quote_ko": "진정한 부는 은행 계좌에 있는 돈뿐만 아니라, 시간, 사회적, 심리적, 신체적, 재정적 부라는 5가지 측면의 조합이다。"
-  }
+  },
+  {
+"id": 1,
+"title": "The head of ChatGPT on AI attachment, ads, and what’s next",
+"title\_zh": "ChatGPT 负责人谈 AI 依赖、广告与未来",
+"title\_ja": "ChatGPT責任者が語るAIへの依存、広告、そして今後",
+"title\_ko": "ChatGPT 책임자가 말하는 AI 몰입, 광고, 그리고 향후 계획",
+"source": "The Verge",
+"link": "[https://www.theverge.com/decoder-podcast-with-nilay-patel/758873/chatgpt-nick-turley-openai-ai-gpt-5-interview](https://www.theverge.com/decoder-podcast-with-nilay-patel/758873/chatgpt-nick-turley-openai-ai-gpt-5-interview)",
+"tags": \["AI", "OpenAI", "ChatGPT", "product design", "model personality"],
+"tags\_zh": \["人工智能", "OpenAI", "ChatGPT", "产品设计", "模型人格"],
+"tags\_ja": \["人工知能", "OpenAI", "ChatGPT", "プロダクト設計", "モデルの個性"],
+"tags\_ko": \["인공지능", "OpenAI", "ChatGPT", "제품 설계", "모델 성격"],
+"date": "2025-08-14",
+"summary\_en": "Nick Turley (head of ChatGPT) explains the GPT-5 rollout and the quick reinstatement of GPT-4o after strong user attachment; OpenAI plans clearer deprecation timelines, personality controls, and product simplicity while cautioning against user overreliance on AI. He also discusses ads, hallucination reduction efforts, and that ChatGPT’s future UX may move beyond a chatbot. ([The Verge][1])",
+"summary\_zh": "ChatGPT 负责人 Nick Turley 解释了 GPT-5 的上线及因用户强烈依赖而迅速恢复 GPT-4o 的决定；OpenAI 将考虑更明确的模型淘汰时间表、可选人格设置并保持产品简洁，同时警惕用户过度依赖 AI。他还谈到广告、减少幻觉的工作，以及未来产品可能不再以传统聊天机器人形态为主。([The Verge][1])",
+"summary\_ja": "ChatGPT責任者のNick Turleyは、GPT-5の展開とユーザーの強い愛着によりGPT-4oを速やかに復活させた経緯を説明。OpenAIはモデルの廃止スケジュール明確化、人格選択機能、製品の簡素化を検討し、AIへの過度な依存に懸念を示す。広告や幻覚（hallucination）対策、将来的にチャット以外のUXへ移行する可能性も語られた。([The Verge][1])",
+"summary\_ko": "ChatGPT 책임자 Nick Turley는 GPT-5 롤아웃과 사용자들의 강한 애착으로 인해 GPT-4o를 신속히 복원한 배경을 설명했다. OpenAI는 모델 폐기 일정의 명확화, 성격 선택 기능, 제품의 단순화 등을 고려하며 AI에 대한 과도한 의존에 대해 주의를 표한다. 광고·환각(hallucination) 감소 노력과 향후 챗봇 형식을 넘는 UX 가능성도 논의되었다.([The Verge][1])",
+"best\_quote\_en": "“Our goal was not to keep you in the product.”",
+"best\_quote\_zh": "“我们的目标不是让你长时间留在产品里。”",
+"best\_quote\_ja": "「私たちの目的は、あなたを製品内に留め続けることではない。」",
+"best\_quote\_ko": "“우리의 목표는 사용자를 제품 속에 오래 머무르게 하는 것이 아니다.”
+}
 ]

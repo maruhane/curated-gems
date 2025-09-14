@@ -10,94 +10,107 @@
 
 <body>
     <header class="container">
-        <h1 data-zh="羽的实时精选" data-en="Ling Sun's Curated Content">羽的实时精选</h1>
-        <p class="subtitle" data-zh="优质文章、播客和资源分享" data-en="Quality articles, podcasts and resources">优质文章、播客和资源分享</p>
+        <h1 data-zh="羽的实时精选" data-en="Ling Sun's Curated Content"
+            data-ja="Ling Sunの厳選コンテンツ" data-ko="링 선의 선별 콘텐츠">羽的实时精选</h1>
+
+        <p class="subtitle" data-zh="优质文章、播客和资源分享" data-en="Quality articles, podcasts and resources"
+            data-ja="良質な記事、ポッドキャスト、リソース共有" data-ko="우수한 기사, 팟캐스트 및 자료 공유">
+            优质文章、播客和资源分享</p>
+
         <div class="header-controls">
             <div id="version-bar" class="version-selector">
-                <label for="ver" data-zh="版本：" data-en="Version:">版本：</label>
+                <label for="ver" data-zh="版本：" data-en="Version:" data-ja="バージョン：" data-ko="버전：">版本：</label>
                 <select id="ver" class="version-select">
-                    <option value="1" selected data-zh="v1 - 基础版" data-en="v1 - Basic">v1 - 基础版</option>
-                    <option value="2" data-zh="v2 - 搜索版" data-en="v2 - Search">v2 - 搜索版</option>
-                    <option value="3" data-zh="v3 - 筛选版" data-en="v3 - Filter">v3 - 筛选版</option>
-                    <option value="4" data-zh="v4 - 动态版" data-en="v4 - Dynamic">v4 - 动态版</option>
+                    <option value="1" selected data-zh="v1 - 基础版" data-en="v1 - Basic"
+                        data-ja="v1 - ベーシック" data-ko="v1 - 기본판">v1 - 基础版</option>
+                    <option value="2" data-zh="v2 - 搜索版" data-en="v2 - Search" data-ja="v2 - 検索"
+                        data-ko="v2 - 검색판">v2 - 搜索版</option>
+                    <option value="3" data-zh="v3 - 筛选版" data-en="v3 - Filter" data-ja="v3 - フィルター"
+                        data-ko="v3 - 필터판">v3 - 筛选版</option>
+                    <option value="4" data-zh="v4 - 动态版" data-en="v4 - Dynamic" data-ja="v4 - ダイナミック"
+                        data-ko="v4 - 동적판">v4 - 动态版</option>
                 </select>
-                <small id="hint"></small>
+                <small id="hint" data-zh="加载中…" data-en="Loading..."
+                    data-ja="読み込み中…" data-ko="로딩 중…"></small>
             </div>
+
             <div class="language-selector">
-                <label for="lang" data-zh="语言：" data-en="Language:">语言：</label>
+                <label for="lang" data-zh="语言：" data-en="Language:" data-ja="言語：" data-ko="언어：">语言：</label>
                 <select id="lang" class="language-select">
-                    <option value="zh" selected data-zh="中文" data-en="Chinese">中文</option>
-                    <option value="en" data-zh="English" data-en="English">English</option>
+                    <option value="zh" selected data-zh="中文" data-en="Chinese" data-ja="中国語" data-ko="중국어">中文</option>
+                    <option value="en" data-zh="English" data-en="English" data-ja="英語" data-ko="영어">English</option>
+                    <option value="ja" data-zh="日本語" data-en="Japanese" data-ja="日本語" data-ko="일본어">日本語</option>
+                    <option value="ko" data-zh="韩语" data-en="Korean" data-ja="韓国語" data-ko="한국어">韩语</option>
                 </select>
             </div>
         </div>
     </header>
+
     <main class="container">
         <div id="controls"></div>
         <div id="list" class="grid"></div>
-        <p id="empty" class="hidden" data-zh="加载中…" data-en="Loading...">加载中…</p>
+        <p id="empty" class="hidden" data-zh="加载中…" data-en="Loading..." data-ja="読み込み中…" data-ko="로딩 중…">加载中…</p>
     </main>
+
     <script>
-        // Language management
-        let currentLang = 'zh';
-        
+        // Language management - 支持 zh / en / ja / ko
         function updateLanguage(lang) {
-            currentLang = lang;
-            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-            
-            // Update all elements with data-zh and data-en attributes
-            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`);
+            // 设置 <html lang="...">（可根据需要改成 ja-JP / ko-KR）
+            const htmlLangMap = { zh: 'zh-CN', en: 'en', ja: 'ja-JP', ko: 'ko-KR' };
+            document.documentElement.lang = htmlLangMap[lang] || lang;
+
+            // 切换页面上所有带 data-zh 的元素（我们把翻译都放在 data-zh/data-en/data-ja/data-ko）
+            document.querySelectorAll('[data-zh]').forEach(el => {
+                const val = el.getAttribute(`data-${lang}`) || el.getAttribute('data-en') || el.textContent;
+                el.textContent = val;
             });
-            
-            // Update option texts
-            document.querySelectorAll('option[data-zh][data-en]').forEach(option => {
-                option.textContent = option.getAttribute(`data-${lang}`);
-            });
-            
-            // Update hint text
+
+            // 单独更新 hint（也可放 data-*，这里保持兼容）
             const ver = document.getElementById("ver").value;
             const hintTexts = {
                 zh: `当前：v${ver}（地址可加 ?v=1/2/3/4 切换）`,
-                en: `Current: v${ver} (Add ?v=1/2/3/4 to URL to switch)`
+                en: `Current: v${ver} (Add ?v=1/2/3/4 to URL to switch)`,
+                ja: `現在：v${ver}（URLで ?v=1/2/3/4 を追加して切替）`,
+                ko: `현재: v${ver} (URL에 ?v=1/2/3/4 추가하여 전환)`
             };
-            document.getElementById("hint").textContent = hintTexts[lang];
-            
-            // Trigger re-render if data is already loaded
-            if (window.currentData) {
+            const hint = document.getElementById("hint");
+            if (hint) hint.textContent = hintTexts[lang] || hintTexts.en;
+
+            // 如果数据已经加载，委托给页面的渲染函数（app.js 需要支持 renderWithLanguage）
+            if (window.currentData && typeof window.renderWithLanguage === 'function') {
                 window.renderWithLanguage(window.currentData, lang);
             }
         }
-        
-        // Initialize parameters
+
+        // 读取 URL 参数初始化
         const params = new URLSearchParams(location.search);
         const ver = params.get("v") || "1";
         const lang = params.get("lang") || "zh";
-        
+
         document.getElementById("ver").value = ver;
         document.getElementById("lang").value = lang;
-        
-        // Update language on load
+
+        // 页面首次设置语言
         updateLanguage(lang);
-        
-        // Version change handler
+
+        // 版本切换：保留语言参数
         document.getElementById("ver").addEventListener("change", (e) => {
             const u = new URL(location.href);
             u.searchParams.set("v", e.target.value);
-            // 保持当前语言设置
-            const currentLang = document.getElementById("lang").value;
-            u.searchParams.set("lang", currentLang);
+            u.searchParams.set("lang", document.getElementById("lang").value);
             location.href = u.toString();
         });
-        
-        // Language change handler
+
+        // 语言切换（通过修改 URL 重新加载）
         document.getElementById("lang").addEventListener("change", (e) => {
             const u = new URL(location.href);
             u.searchParams.set("lang", e.target.value);
+            // 保持当前版本参数
+            u.searchParams.set("v", document.getElementById("ver").value);
             location.href = u.toString();
         });
-        
-        // Load version-specific script
+
+        // 加载版本脚本（不变）
         const s = document.createElement("script");
         s.src = `./v${ver}/app.js`;
         s.defer = true;

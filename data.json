@@ -1,16 +1,32 @@
 [
 {
-"id": 1,
-"title": "中国对美国相关模拟芯片发起反倾销调查，就集成电路领域美方措施发起反歧视调查",
-"title_zh": "中国对美国相关模拟芯片发起反倾销调查，就集成电路领域美方措施发起反歧视调查",
-"source": "RFI（法国国际广播电台・华语）",
-"link": "[https://www.rfi.fr/cn/%E7%BB%8F%E8%B4%B8/20250913-%E4%B8%AD%E5%9B%BD%E5%AF%B9%E7%BE%8E%E5%9B%BD%E7%9B%B8%E5%85%B3%E6%A8%A1%E6%8B%9F%E8%8A%AF%E7%89%87%E5%8F%91%E8%B5%B7%E5%8F%8D%E5%80%BE%E9%94%80%E8%B0%83%E6%9F%A5-%E5%B0%B1%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E9%A2%86%E5%9F%9F%E7%BE%8E%E6%96%B9%E6%8E%AA%E6%96%BD%E5%8F%91%E8%B5%B7%E5%8F%8D%E6%AD%A7%E8%A7%86%E8%B0%83%E6%9F%A5](https://www.rfi.fr/cn/%E7%BB%8F%E8%B4%B8/20250913-%E4%B8%AD%E5%9B%BD%E5%AF%B9%E7%BE%8E%E5%9B%BD%E7%9B%B8%E5%85%B3%E6%A8%A1%E6%8B%9F%E8%8A%AF%E7%89%87%E5%8F%91%E8%B5%B7%E5%8F%8D%E5%80%BE%E9%94%80%E8%B0%83%E6%9F%A5-%E5%B0%B1%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E9%A2%86%E5%9F%9F%E7%BE%8E%E6%96%B9%E6%8E%AA%E6%96%BD%E5%8F%91%E8%B5%B7%E5%8F%8D%E6%AD%A7%E8%A7%86%E8%B0%83%E6%9F%A5)",
-"tags": ["trade", "semiconductors", "China–US relations", "anti-dumping", "trade remedies"],
-"tags_zh": ["经贸", "半导体", "中美关系", "反倾销", "贸易救济"],
-"date": "2025-09-13",
-"summary_en": "China's Ministry of Commerce launched an anti-dumping investigation into certain U.S.-origin analog ICs and a separate anti-discrimination probe into U.S. measures targeting China's integrated-circuit sector, framing both as legal responses to U.S. export controls to defend Chinese firms' rights.",
-"summary_zh": "中国商务部对原产于美国的部分模拟集成电路启动反倾销调查，并就美方针对中国集成电路领域的限制措施发起反歧视调查，称此举为依法维护中国企业正当权益的回应。",
-"best_quote_en": "China said it will take all necessary measures to defend the legitimate rights and interests of Chinese companies.",
-"best_quote_zh": "中方将采取一切必要措施捍卫中国企业的正当权益。"
+  "id": 1,
+  "title": "《人生的五種財富》讀後心得：財富不是銀行帳戶的數字",
+  "title_zh": "《人生的五種財富》讀後心得：財富不是銀行帳戶的數字",
+  "title_ja": "《人生の五つの富》読後感想：富はお金の数字だけではない",
+  "title_ko": "《인생의 5가지 재산》독후 감상: 재산은 은행 계좌의 숫자가 아니다",
+  "source": "閱讀前哨站",
+  "link": "https://readingoutpost.com/the-5-types-of-wealth/",
+  "tags": [
+    "推荐"
+  ],
+  "tags_zh": [
+    "推荐"
+  ],
+  "tags_ja": [
+    "おすすめ"
+  ],
+  "tags_ko": [
+    "추천"
+  ],
+  "date": "2025-09-08",
+  "summary_en": "This article is a review of Sahil Bloom's book, The 5 Forms of Wealth. It argues that true wealth is a combination of five types: Time, Social, Psychological, Physical, and Financial. It emphasizes that financial wealth is just one part of a richer, more meaningful life, which also includes having control over your time, maintaining quality relationships, living an authentic life, and investing in your long-term health.",
+  "summary_zh": "這篇文章是薩希爾·布盧姆所著的《人生的五種財富》的讀後心得。文章指出，真正的財富不僅僅是銀行裡的錢，而是由時間、社交、心理、身體和金錢這五種財富組合而成。文中強調，金錢財富只是其中一部分，更豐富、更有意義的人生還包括擁有時間的掌控權、維繫優質的社交關係、活出真實的自己以及投資於長期的身體健康。",
+  "summary_ja": "この記事はサヒル・ブルーム氏の著書『人生の五つの富』の書評です。真の富は、銀行口座のお金だけでなく、時間、社会、心理、身体、経済の五つの側面からなる組み合わせであると論じています。時間的な自由、質の高い人間関係、自分らしい生き方、長期的な健康への投資など、より豊かで意味のある人生には、金融的な富だけでなく、さまざまな要素が含まれていると強調しています。",
+  "summary_ko": "이 글은 사힐 블룸의 책 '인생의 5가지 재산'에 대한 독후감입니다. 진정한 부는 은행 계좌의 돈뿐만 아니라 시간, 사회적, 심리적, 신체적, 재정적이라는 5가지 부의 조합이라고 주장합니다. 글은 재정적 부가 더 풍요롭고 의미 있는 삶의 한 부분일 뿐이며, 시간 통제, 양질의 관계 유지, 진정한 삶을 사는 것, 장기적인 건강에 투자하는 것 또한 중요하다고 강조합니다.",
+  "best_quote_en": "True wealth is not just the money in a bank account, but a combination of five different aspects: time, social, psychological, physical, and financial wealth.",
+  "best_quote_zh": "真正的財富不僅僅是銀行帳戶裡的錢，而是時間、社交、心理、身體和金錢這五種財富的組合。",
+  "best_quote_ja": "本当の富は銀行口座の数字だけではなく、時間、社会、心理、身体、経済の五つの側面からなる組み合わせだ。",
+  "best_quote_ko": "진정한 부는 은행 계좌에 있는 돈뿐만 아니라, 시간, 사회적, 심리적, 신체적, 재정적 부라는 5가지 측면의 조합이다。"
 }
 ]

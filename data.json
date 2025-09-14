@@ -1,32 +1,40 @@
 [
-{
-  "id": 1,
-  "title": "《人生的五種財富》讀後心得：財富不是銀行帳戶的數字",
-  "title_zh": "《人生的五種財富》讀後心得：財富不是銀行帳戶的數字",
-  "title_ja": "《人生の五つの富》読後感想：富はお金の数字だけではない",
-  "title_ko": "《인생의 5가지 재산》독후 감상: 재산은 은행 계좌의 숫자가 아니다",
-  "source": "閱讀前哨站",
-  "link": "https://readingoutpost.com/the-5-types-of-wealth/",
-  "tags": [
-    "推荐"
-  ],
-  "tags_zh": [
-    "推荐"
-  ],
-  "tags_ja": [
-    "おすすめ"
-  ],
-  "tags_ko": [
-    "추천"
-  ],
-  "date": "2025-09-08",
-  "summary_en": "This article is a review of Sahil Bloom's book, The 5 Forms of Wealth. It argues that true wealth is a combination of five types: Time, Social, Psychological, Physical, and Financial. It emphasizes that financial wealth is just one part of a richer, more meaningful life, which also includes having control over your time, maintaining quality relationships, living an authentic life, and investing in your long-term health.",
-  "summary_zh": "這篇文章是薩希爾·布盧姆所著的《人生的五種財富》的讀後心得。文章指出，真正的財富不僅僅是銀行裡的錢，而是由時間、社交、心理、身體和金錢這五種財富組合而成。文中強調，金錢財富只是其中一部分，更豐富、更有意義的人生還包括擁有時間的掌控權、維繫優質的社交關係、活出真實的自己以及投資於長期的身體健康。",
-  "summary_ja": "この記事はサヒル・ブルーム氏の著書『人生の五つの富』の書評です。真の富は、銀行口座のお金だけでなく、時間、社会、心理、身体、経済の五つの側面からなる組み合わせであると論じています。時間的な自由、質の高い人間関係、自分らしい生き方、長期的な健康への投資など、より豊かで意味のある人生には、金融的な富だけでなく、さまざまな要素が含まれていると強調しています。",
-  "summary_ko": "이 글은 사힐 블룸의 책 '인생의 5가지 재산'에 대한 독후감입니다. 진정한 부는 은행 계좌의 돈뿐만 아니라 시간, 사회적, 심리적, 신체적, 재정적이라는 5가지 부의 조합이라고 주장합니다. 글은 재정적 부가 더 풍요롭고 의미 있는 삶의 한 부분일 뿐이며, 시간 통제, 양질의 관계 유지, 진정한 삶을 사는 것, 장기적인 건강에 투자하는 것 또한 중요하다고 강조합니다.",
-  "best_quote_en": "True wealth is not just the money in a bank account, but a combination of five different aspects: time, social, psychological, physical, and financial wealth.",
-  "best_quote_zh": "真正的財富不僅僅是銀行帳戶裡的錢，而是時間、社交、心理、身體和金錢這五種財富的組合。",
-  "best_quote_ja": "本当の富は銀行口座の数字だけではなく、時間、社会、心理、身体、経済の五つの側面からなる組み合わせだ。",
-  "best_quote_ko": "진정한 부는 은행 계좌에 있는 돈뿐만 아니라, 시간, 사회적, 심리적, 신체적, 재정적 부라는 5가지 측면의 조합이다。"
-}
+  {
+    "id": 1,
+    "title": "《人生的五種財富》讀後心得：財富不是銀行帳戶的數字",
+    "title_zh": "《人生的五種財富》讀後心得：財富不是銀行帳戶的數字",
+    "title_ja": "《人生の五つの富》読後感想：富はお金の数字だけではない",
+    "title_ko": "《인생의 5가지 재산》독후 감상: 재산은 은행 계좌의 숫자가 아니다",
+    "source": "閱讀前哨站",
+    "link": "https://readingoutpost.com/the-5-types-of-wealth/",
+    "tags": [
+      "個人成長",
+      "人生哲學",
+      "讀後心得"
+    ],
+    "tags_zh": [
+      "個人成長",
+      "人生哲學",
+      "讀後心得"
+    ],
+    "tags_ja": [
+      "自己啓発",
+      "人生哲学",
+      "書評"
+    ],
+    "tags_ko": [
+      "자기계발",
+      "인생 철학",
+      "독후감"
+    ],
+    "date": "2025-09-08",
+    "summary_en": "This article is a review of Sahil Bloom's book, The 5 Forms of Wealth. It argues that true wealth is a combination of five types: Time, Social, Psychological, Physical, and Financial. It emphasizes that financial wealth is just one part of a richer, more meaningful life, which also includes having control over your time, maintaining quality relationships, living an authentic life, and investing in your long-term health.",
+    "summary_zh": "這篇文章是薩希爾·布盧姆所著的《人生的五種財富》的讀後心得。文章指出，真正的財富不僅僅是銀行裡的錢，而是由時間、社交、心理、身體和金錢這五種財富組合而成。文中強調，金錢財富只是其中一部分，更豐富、更有意義的人生還包括擁有時間的掌控權、維繫優質的社交關係、活出真實的自己以及投資於長期的身體健康。",
+    "summary_ja": "この記事はサヒル・ブルーム氏の著書『人生の五つの富』の書評です。真の富は、銀行口座のお金だけでなく、時間、社会、心理、身体、経済の五つの側面からなる組み合わせであると論じています。時間的な自由、質の高い人間関係、自分らしい生き方、長期的な健康への投資など、より豊かで意味のある人生には、金融的な富だけでなく、さまざまな要素が含まれていると強調しています。",
+    "summary_ko": "이 글은 사힐 블룸의 책 '인생의 5가지 재산'에 대한 독후감입니다. 진정한 부는 은행 계좌의 돈뿐만 아니라 시간, 사회적, 심리적, 신체적, 재정적이라는 5가지 부의 조합이라고 주장합니다. 글은 재정적 부가 더 풍요롭고 의미 있는 삶의 한 부분일 뿐이며, 시간 통제, 양질의 관계 유지, 진정한 삶을 사는 것, 장기적인 건강에 투자하는 것 또한 중요하다고 강조합니다.",
+    "best_quote_en": "True wealth is not just the money in a bank account, but a combination of five different aspects: time, social, psychological, physical, and financial wealth.",
+    "best_quote_zh": "真正的財富不僅僅是銀行帳戶裡的錢，而是時間、社交、心理、身體和金錢這五種財富的組合。",
+    "best_quote_ja": "本当の富は銀行口座の数字だけではなく、時間、社会、心理、身体、経済の五つの側面からなる組み合わせだ。",
+    "best_quote_ko": "진정한 부는 은행 계좌에 있는 돈뿐만 아니라, 시간, 사회적, 심리적, 신체적, 재정적 부라는 5가지 측면의 조합이다。"
+  }
 ]

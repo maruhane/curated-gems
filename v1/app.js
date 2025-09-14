@@ -49,25 +49,28 @@ function render(items) {
   }
   emptyEl.classList.add('hidden');
   listEl.innerHTML = items.map(item => card(item, window.currentLang || 'zh')).join('');
-}
-
-function renderWithLanguage(items, lang) {
-  if (!items?.length) { 
-    const emptyTexts = {
-      zh: '暂无内容',
-      en: 'No content available'
-    };
-    emptyEl.textContent = emptyTexts[lang];
-    emptyEl.classList.remove('hidden'); 
-    return; 
-  }
-  emptyEl.classList.add('hidden');
-  listEl.innerHTML = items.map(item => card(item, lang)).join('');
-}
-function card(item, lang = 'zh'){
-  const tagsArray = lang === 'zh' ? (item.tags_zh || item.tags || []) : (item.tags || []);
+function card(item, lang = 'zh') {
+  // 动态获取多语言字段，如果不存在则使用默认值
+  const title = item[`title_${lang}`] || item.title_zh || item.title;
+  const desc = item[`summary_${lang}`] || item.summary_zh || item.summary_en || '';
+  const quote = item[`best_quote_${lang}`] || item.best_quote_zh || item.best_quote_en || '';
+  const tagsArray = item[`tags_${lang}`] || item.tags_zh || item.tags || [];
+  
   const tags = tagsArray.join(', ');
-  const title = lang === 'zh' ? (item.title_zh || item.title) : item.title;
+  
+  // 根据语言设置AI总结和引号
+  const aiSummaryLabel = { zh: 'AI总结：', en: 'AI Summary: ', ja: 'AIサマリー：', ko: 'AI 요약: ' }[lang] || 'AI Summary: ';
+  const quoteWrapper = { zh: '「」', en: '""', ja: '『』', ko: '""' }[lang] || '""';
+
+  return `
+    <article class="card">
+      <h3><a href="${item.link}" target="_blank" rel="noopener">${esc(title)}</a></h3>
+      ${desc ? `<p><span class="ai-label">${aiSummaryLabel}</span>${esc(desc)}</p>` : ''}
+      ${quote ? `<blockquote>${quoteWrapper[0]}${esc(quote)}${quoteWrapper[1]}</blockquote>` : ''}
+      <div class="meta">${esc(item.source)} · ${esc(tags)} · ${esc(item.date||'')}</div>
+    </article>
+  `;
+}
   const desc = lang === 'zh' ? (item.summary_zh || '') : (item.summary_en || '');
   const quote = lang === 'zh' ? (item.best_quote_zh || '') : (item.best_quote_en || '');
   const quoteWrapper = lang === 'zh' ? '「」' : '""';

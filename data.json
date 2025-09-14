@@ -1,23 +1,29 @@
 [
 {
 "id": 1,
-"title": "中国对美国相关模拟芯片发起反倾销调查就集成电路领域美方措施发起反歧视调查",
+"title": "中国对美国相关模拟芯片发起反倾销调查，就集成电路领域美方措施发起反歧视调查",
 "title\_zh": "中国对美国相关模拟芯片发起反倾销调查，就集成电路领域美方措施发起反歧视调查",
-"source": "RFI（法国国际广播电台 华语）",
-"link": "[https://www.rfi.fr/cn/%E7%BB%8F%E8%B4%B8/20250913-%E4%B8%AD%E5%9B%BD%E5%AF%B9%E7%BE%8E%E5%9B%BD%E7%9B%B8%E5%85%B3%E6%A8%A1%E6%8B%9F%E8%8A%AF%E7%89%87%E5%8F%91%E8%B5%B7%E5%8F%8D%E5%80%BE%E9%94%80%E8%B0%83%E6%9F%A5-%E5%B0%B1%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E9%A2%86%E5%9F%9F%E7%BE%8E%E6%96%B9%E6%8E%AA%E6%96%BD%E5%8F%91%E8%B5%B7%E5%8F%8D%E6%AD%A7%E8%A7%86%E8%B0%83%E6%9F%A5](https://www.rfi.fr/cn/%E7%BB%8F%E8%B4%B8/20250913-%E4%B8%AD%E5%9B%BD%E5%AF%B9%E7%BE%8E%E5%9B%BD%E7%9B%B8%E5%85%B3%E6%A8%A1%E6%8B%9F%E8%8A%AF%E7%89%87%E5%8F%91%E8%B5%B7%E5%8F%8D%E5%80%BE%E9%94%80%E8%B0%83%E6%9F%A5-%E5%B0%B1%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E9%A2%86%E5%9F%9F%E7%BE%8E%E6%96%B9%E6%8E%AA%E6%96%BD%E5%8F%91%E8%B5%B7%E5%8F%8D%E6%AD%A7%E8%A7%86%E8%B0%83%E6%9F%A5)",
-"tags": \["trade", "semiconductors", "China–US relations", "anti-dumping"],
-"tags\_zh": \["经贸", "半导体", "中美关系", "反倾销"],
+"source": "RFI（法国国际广播电台 华语） / 商务部公告（通过微信公众号或转载）",
+"link": "[https://mp.weixin.qq.com/s/vpside7VCrpWsFpfmeb\_8g](https://mp.weixin.qq.com/s/vpside7VCrpWsFpfmeb_8g)",
+"tags": \["trade", "semiconductors", "China–US relations", "anti-dumping", "trade remedies"],
+"tags\_zh": \["经贸", "半导体", "中美关系", "反倾销", "贸易救济"],
 "date": "2025-09-13",
-"summary\_en": "China's Ministry of Commerce announced on Sept. 13, 2025 two linked actions: an anti-dumping investigation into certain U.S.-origin analog IC chips (specifically commodity interface ICs and gate driver ICs using 40nm and above) and a separate anti-discrimination probe into U.S. measures targeting China’s integrated-circuit sector. The ministry said the anti-dumping probe covers shipments in 2024 (investigation period) and cites rising import volumes and falling import prices as harming domestic producers. Beijing framed the moves as a response to what it calls U.S. export controls and discriminatory restrictions meant to contain China’s advanced-tech development — and noted the probes come just before a new round of U.S.–China trade talks. The investigations follow official applications from domestic industry and will proceed under China’s legal procedures; outcomes could lead to countermeasures. ([商务部][1])",
-"summary\_zh": "中国商务部于2025年9月13日宣布两项相关行动：对原产于美国的部分模拟集成电路（主要是通用接口芯片和栅极驱动芯片，40nm及以上工艺）立案反倾销调查，同时对美方在集成电路领域的相关措施发起反歧视调查。商务部称，申请资料显示2022–2024年间该类自美进口量明显上升、进口价格明显下降，已对国内产业造成损害。中方把这两项调查置于对美方出口管制和限制措施的应对框架内，并指出此举发生在新一轮中美经贸会谈之前。调查系依法立案并将按法定程序开展，调查结果可能产生对美方的后续对等措施。 ([商务部][1])",
-"best\_quote\_en": "China said it "will take all necessary measures to defend the legitimate rights and interests of Chinese companies." ([商务部][2])",
-"best\_quote\_zh": "中方将采取一切必要措施捍卫中国企业的正当权益。([商务部][2])",
+"summary\_en": "On Sept. 13, 2025 China’s Ministry of Commerce announced two linked actions: (1) an anti-dumping investigation into certain U.S.-origin analog integrated-circuit (IC) chips — specifically commodity interface ICs and gate driver ICs using 40nm and above — with the dumping investigation period set as Jan 1–Dec 31, 2024 and the injury period as Jan 1, 2022–Dec 31, 2024; the case was filed by the Jiangsu Semiconductor Industry Association and the applicant’s preliminary evidence claims imports rose \~37% while import prices fell \~52%. (2) a separate anti-discrimination investigation into U.S. measures targeting China’s integrated-circuit sector; the ministry framed these steps as a legal response to U.S. export controls and discriminatory restrictions and said it will “take all necessary measures to defend the legitimate rights and interests of Chinese companies.” The anti-dumping probe normally should conclude by Sept 13, 2026 (with a possible six-month extension). ([商务部][1])",
+"summary\_zh": "2025年9月13日，中国商务部宣布两项相关行动：一是对原产于美国的部分模拟集成电路（主要为使用40nm及以上工艺的通用接口芯片和栅极驱动芯片）立案反倾销调查，倾销调查期为2024年1月1日至2024年12月31日，产业损害调查期为2022年1月1日至2024年12月31日；该案由江苏省半导体行业协会提出，申请人提交的初步证据称2022–2024年相关自美进口量累计增长约37%，进口价格累计下降约52%。二是就美国对华集成电路领域相关措施启动反歧视调查，中方将此作为对美方出口管制和限制性措施的法律回应，并表示“将采取一切必要措施捍卫中国企业的正当权益”。反倾销调查通常应在2026年9月13日前结束，特殊情况下可延长6个月。([商务部][1])",
+"best\_quote\_en": "China said it will “take all necessary measures to defend the legitimate rights and interests of Chinese companies.” ([商务部][2])",
+"best\_quote\_zh": "“中方将采取一切必要措施捍卫中国企业的正当权益。” ([商务部][2])",
 "citations": \[
-"商务部公告（官方通告）— 中华人民共和国商务部公告（立案反倾销调查）: ([商务部][1])",
-"商务部新闻答记者问（新闻稿/问答）: ([商务部][2])",
-"RFI 报道（用户提供的媒体版本）: ([法广][3])",
-"Reuters 报道（国际媒体背景与会谈时点）: ([Reuters][4])",
-"Xinhua / 人民网（国内主流媒体转载与官方解读）: ([新华网][5])"
-]
+"MOFCOM — 公告（商务部公告2025年第27号，反倾销立案通知）: ([商务部][1])",
+"MOFCOM — 新闻答记者问（反倾销与反歧视调查说明）: ([商务部][3])",
+"RFI 华语（报道摘要/转载）: ([法广][4])",
+"Xinhua / 中新社（官方英文/中文通稿）: ([新华网][5])",
+"SCMP / international coverage (context and market reaction): ([scmp.com][6])"
+}
+[1]: https://www.mofcom.gov.cn/zwgk/zcfb/art/2025/art_c7f379bfff21421596c6f1df5d925400.html "商务部公告2025年第27号 公布对原产于美国的进口相关模拟芯片发起反倾销立案调查"
+[2]: https://www.mofcom.gov.cn/syxwfb/art/2025/art_e692bf4ffb0a48e08e34a2ae794adc09.html?utm_source=chatgpt.com "商务部新闻发言人就中方公布就美国对华集成电路领域相关 ..."
+[3]: https://www.mofcom.gov.cn/syxwfb/art/2025/art_472c2ca97a954411a7dd1e459e019ae0.html "商务部新闻发言人就对原产于美国的进口相关模拟芯片发起反倾销调查答记者问"
+[4]: https://www.rfi.fr/cn/%E7%BB%8F%E8%B4%B8/20250913-%E4%B8%AD%E5%9B%BD%E5%AF%B9%E7%BE%8E%E5%9B%BD%E7%9B%B8%E5%85%B3%E6%A8%A1%E6%8B%9F%E8%8A%AF%E7%89%87%E5%8F%91%E8%B5%B7%E5%8F%8D%E5%80%BE%E9%94%80%E8%B0%83%E6%9F%A5-%E5%B0%B1%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E9%A2%86%E5%9F%9F%E7%BE%8E%E6%96%B9%E6%8E%AA%E6%96%BD%E5%8F%91%E8%B5%B7%E5%8F%8D%E6%AD%A7%E8%A7%86%E8%B0%83%E6%9F%A5?utm_source=chatgpt.com "中国对美国相关模拟芯片发起反倾销调查就集成电路领域 ..."
+[5]: https://www.xinhuanet.com/english/20250913/6bc5fc3a10854969b332946e36a2e93b/c.html?utm_source=chatgpt.com "China launches anti-dumping probe into certain U.S. ..."
+[6]: https://www.scmp.com/economy/global-economy/article/3325445/china-declares-anti-dumping-probe-us-analog-chips?utm_source=chatgpt.com "China declares anti-dumping probe into US analogue chips"
 }
 ]

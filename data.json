@@ -58,5 +58,27 @@
 "best_quote_zh": "我们的目标不是让你长时间留在产品里。",
 "best_quote_ja": "「私たちの目的は、あなたを製品内に留め続けることではない。」",
 "best_quote_ko": "우리의 목표는 사용자를 제품 속에 오래 머무르게 하는 것이 아니다."
+},
+  {
+"id": 1,
+"title": "Sierra CEO Bret Taylor on why the AI bubble feels like the dotcom boom",
+"title_zh": "Sierra CEO 布雷特·泰勒：为何 AI 泡沫像互联网热潮",
+"title_ja": "Sierra CEO ブレット・テイラー：AIバブルがドットコムブームに似ている理由",
+"title_ko": "Sierra CEO 브렛 테일러: 왜 AI 버블이 닷컴 붐과 닮았는가",
+"source": "The Verge",
+"link": "[https://www.theverge.com/decoder-podcast-with-nilay-patel/773904/sierra-ceo-bret-taylor-ai-agents-openai-bubble-interview](https://www.theverge.com/decoder-podcast-with-nilay-patel/773904/sierra-ceo-bret-taylor-ai-agents-openai-bubble-interview)",
+"tags": ["AI", "agents", "Sierra", "Bret Taylor", "customer service", "startup", "OpenAI", "industry outlook"],
+"tags_zh": ["人工智能", "智能代理", "Sierra", "Bret Taylor", "客户服务", "初创公司", "OpenAI", "行业展望"],
+"tags_ja": ["人工知能", "エージェント", "Sierra", "Bret Taylor", "カスタマーサービス", "スタートアップ", "OpenAI", "業界見通し"],
+"tags_ko": ["인공지능", "에이전트", "Sierra", "Bret Taylor", "고객서비스", "스타트업", "OpenAI", "업계 전망"],
+"date": "2025-09-11",
+"summary_en": "Bret Taylor, CEO of Sierra and OpenAI chairman, discusses founding Sierra to build AI agents for customer experiences, why the current AI boom reminds him of the dot-com era, how agents are already replacing parts of customer support, and his bullish view that many markets will be transformed — while noting risks and the need for practical product work. ([The Verge][1])",
+"summary_zh": "Sierra CEO 兼 OpenAI 主席 Bret Taylor 回顾创办 Sierra 的初衷（为客户体验构建 AI 代理）、为何当下的 AI 热潮让他想起互联网时代，说明代理（agents）已在替代部分客户服务流程，并认为许多市场将被改造，同时强调存在风险并需脚踏实地完善产品。([The Verge][1])",
+"summary_ja": "SierraのCEOでありOpenAIの会長でもあるBret Taylorは、顧客体験向けAIエージェントを構築するためにSierraを立ち上げた経緯、現在のAIブームがドットコム時代を彷彿とさせる理由、エージェントが顧客サポートの一部を置き換えつつあること、多くの市場が変革されるという強気の見方とリスクや実務の重要性について語った。([The Verge][1])",
+"summary_ko": "Sierra CEO 겸 OpenAI 의장인 Bret Taylor는 고객 경험을 위한 AI 에이전트를 개발하기 위해 Sierra를 창업한 과정, 현재 AI 붐이 닷컴 시대를 연상시키는 이유, 에이전트가 고객 지원의 일부를 대체하고 있음을 설명하며 다수의 시장이 변화할 것이라는 낙관과 동시에 위험 및 실무적 제품 개발의 필요성을 강조했다.([The Verge][1])",
+"best_quote_en": "“This technology ... was really going to change the world.” ([The Verge][1])",
+"best_quote_zh": "“这项技术……真的会改变世界。” ([The Verge][1])",
+"best_quote_ja": "「この技術は……本当に世界を変えるだろう。」 ([The Verge][1])",
+"best_quote_ko": "“이 기술은 ... 정말 세상을 바꿀 것이다.” ([The Verge][1])"
 }
 ]

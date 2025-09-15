@@ -47,7 +47,7 @@
   "title_zh": "ChatGPT 负责人谈 AI 依赖、广告与未来",
   "title_ja": "ChatGPT責任者が語るAIへの依存、広告、そして今後",
   "title_ko": "ChatGPT 책임자가 말하는 AI 몰입, 광고, 그리고 향후 계획",
-  "summary_en": "Nick Turley (head of ChatGPT) explains the GPT-5 rollout and the quick reinstatement of GPT-4o after strong user attachment; OpenAI plans clearer deprecation timelines, personality controls, and product simplicity while cautioning against user overreliance on AI. He also discusses ads, hallucination reduction efforts, and that ChatGPT’s future UX may move beyond a chatbot. )",
+  "summary_en": "Nick Turley (head of ChatGPT) explains the GPT-5 rollout and the quick reinstatement of GPT-4o after strong user attachment; OpenAI plans clearer deprecation timelines, personality controls, and product simplicity while cautioning against user overreliance on AI. He also discusses ads, hallucination reduction efforts, and that ChatGPT’s future UX may move beyond a chatbot. ",
   "summary_zh": "ChatGPT 负责人 Nick Turley 解释了 GPT-5 的上线及因用户强烈依赖而迅速恢复 GPT-4o 的决定；OpenAI 将考虑更明确的模型淘汰时间表、可选人格设置并保持产品简洁，同时警惕用户过度依赖 AI。他还谈到广告、减少幻觉的工作，以及未来产品可能不再以传统聊天机器人形态为主。",
   "summary_ja": "ChatGPT責任者のNick Turleyは、GPT-5の展開とユーザーの強い愛着によりGPT-4oを速やかに復活させた経緯を説明。OpenAIはモデルの廃止スケジュール明確化、人格選択機能、製品の簡素化を検討し、AIへの過度な依存に懸念を示す。広告や幻覚（hallucination）対策、将来的にチャット以外のUXへ移行する可能性も語られた。",
   "summary_ko": "ChatGPT 책임자 Nick Turley는 GPT-5 롤아웃과 사용자들의 강한 애착으로 인해 GPT-4o를 신속히 복원한 배경을 설명했다. OpenAI는 모델 폐기 일정의 명확화, 성격 선택 기능, 제품의 단순화 등을 고려하며 AI에 대한 과도한 의존에 대해 주의를 표한다. 광고·환각(hallucination) 감소 노력과 향후 챗봇 형식을 넘는 UX 가능성도 논의되었다.",
@@ -58,7 +58,7 @@
   "best_quote_en": "Our goal was not to keep you in the product. ",
   "best_quote_zh": "我们的目标不是让你长时间留在产品里。",
   "best_quote_ja": "私たちの目的は、あなたを製品内に留め続けることではない。 ",
-  "best_quote_ko": "우리의 목표는 사용자를 제품 속에 오래 머무르게 하는 것이 아니다. )"
+  "best_quote_ko": "우리의 목표는 사용자를 제품 속에 오래 머무르게 하는 것이 아니다. "
 },
   {
   "id": 1,
@@ -70,17 +70,17 @@
   "title_zh": "Sierra CEO 布雷特·泰勒：为何 AI 泡沫像互联网热潮",
   "title_ja": "Sierra CEO ブレット・テイラー：AIバブルがドットコムブームに似ている理由",
   "title_ko": "Sierra CEO 브렛 테일러: 왜 AI 버블이 닷컴 붐과 닮았는가",
-  "summary_en": "Bret Taylor, CEO of Sierra and OpenAI chairman, discusses founding Sierra to build AI agents for customer experiences, why the current AI boom reminds him of the dot-com era, how agents are already replacing parts of customer support, and his bullish view that many markets will be transformed — while noting risks and the need for practical product work. )",
+  "summary_en": "Bret Taylor, CEO of Sierra and OpenAI chairman, discusses founding Sierra to build AI agents for customer experiences, why the current AI boom reminds him of the dot-com era, how agents are already replacing parts of customer support, and his bullish view that many markets will be transformed — while noting risks and the need for practical product work.",
   "summary_zh": "Sierra CEO 兼 OpenAI 主席 Bret Taylor 回顾创办 Sierra 的初衷（为客户体验构建 AI 代理）、为何当下的 AI 热潮让他想起互联网时代，说明代理（agents）已在替代部分客户服务流程，并认为许多市场将被改造，同时强调存在风险并需脚踏实地完善产品。([The Verge][1])",
   "summary_ja": "SierraのCEOでありOpenAIの会長でもあるBret Taylorは、顧客体験向けAIエージェントを構築するためにSierraを立ち上げた経緯、現在のAIブームがドットコム時代を彷彿とさせる理由、エージェントが顧客サポートの一部を置き換えつつあること、多くの市場が変革されるという強気の見方とリスクや実務の重要性について語った。",
-  "summary_ko": "Sierra CEO 겸 OpenAI 의장인 Bret Taylor는 고객 경험을 위한 AI 에이전트를 개발하기 위해 Sierra를 창업한 과정, 현재 AI 붐이 닷컴 시대를 연상시키는 이유, 에이전트가 고객 지원의 일부를 대체하고 있음을 설명하며 다수의 시장이 변화할 것이라는 낙관과 동시에 위험 및 실무적 제품 개발의 필요성을 강조했다.)",
+  "summary_ko": "Sierra CEO 겸 OpenAI 의장인 Bret Taylor는 고객 경험을 위한 AI 에이전트를 개발하기 위해 Sierra를 창업한 과정, 현재 AI 붐이 닷컴 시대를 연상시키는 이유, 에이전트가 고객 지원의 일부를 대체하고 있음을 설명하며 다수의 시장이 변화할 것이라는 낙관과 동시에 위험 및 실무적 제품 개발의 필요성을 강조했다.",
   "tags_en": ["AI", "agents", "Sierra", "Bret Taylor", "customer service", "startup", "OpenAI", "industry outlook"],
   "tags_zh": ["人工智能", "智能代理", "Sierra", "Bret Taylor", "客户服务", "初创公司", "OpenAI", "行业展望"],
   "tags_ja": ["人工知能", "エージェント", "Sierra", "Bret Taylor", "カスタマーサービス", "スタートアップ", "OpenAI", "業界見通し"],
   "tags_ko": ["인공지능", "에이전트", "Sierra", "Bret Taylor", "고객서비스", "스타트업", "OpenAI", "업계 전망"],
   "best_quote_en": "This technology ... was really going to change the world. ",
   "best_quote_zh": "这项技术……真的会改变世界。 ",
-  "best_quote_ja": "この技術は……本当に世界を変えるだろう。 )",
-  "best_quote_ko": "이 기술은 ... 정말 세상을 바꿀 것이다. )"
+  "best_quote_ja": "この技術は……本当に世界を変えるだろう。",
+  "best_quote_ko": "이 기술은 ... 정말 세상을 바꿀 것이다."
 }
 ]

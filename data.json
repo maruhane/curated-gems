@@ -55,11 +55,11 @@
   "tags_zh": ["人工智能", "OpenAI", "ChatGPT", "产品设计", "模型人格"],
   "tags_ja": ["人工知能", "OpenAI", "ChatGPT", "プロダクト設計", "モデルの個性"],
   "tags_ko": ["인공지능", "OpenAI", "ChatGPT", "제품 설계", "모델 성격"],
-  "best_quote_en": "“Our goal was not to keep you in the product.” ",
-  "best_quote_zh": "“我们的目标不是让你长时间留在产品里。”",
-  "best_quote_ja": "“私たちの目的は、あなたを製品内に留め続けることではない。” ",
-  "best_quote_ko": "“우리의 목표는 사용자를 제품 속에 오래 머무르게 하는 것이 아니다.” )"
-}
+  "best_quote_en": "Our goal was not to keep you in the product. ",
+  "best_quote_zh": "我们的目标不是让你长时间留在产品里。",
+  "best_quote_ja": "私たちの目的は、あなたを製品内に留め続けることではない。 ",
+  "best_quote_ko": "우리의 목표는 사용자를 제품 속에 오래 머무르게 하는 것이 아니다. )"
+},
   {
   "id": 1,
   "source_language": "en",
@@ -78,9 +78,9 @@
   "tags_zh": ["人工智能", "智能代理", "Sierra", "Bret Taylor", "客户服务", "初创公司", "OpenAI", "行业展望"],
   "tags_ja": ["人工知能", "エージェント", "Sierra", "Bret Taylor", "カスタマーサービス", "スタートアップ", "OpenAI", "業界見通し"],
   "tags_ko": ["인공지능", "에이전트", "Sierra", "Bret Taylor", "고객서비스", "스타트업", "OpenAI", "업계 전망"],
-  "best_quote_en": "“This technology ... was really going to change the world.” ",
-  "best_quote_zh": "“这项技术……真的会改变世界。” ",
-  "best_quote_ja": "「この技術は……本当に世界を変えるだろう。」 )",
-  "best_quote_ko": "“이 기술은 ... 정말 세상을 바꿀 것이다.” )"
+  "best_quote_en": "This technology ... was really going to change the world. ",
+  "best_quote_zh": "这项技术……真的会改变世界。 ",
+  "best_quote_ja": "この技術は……本当に世界を変えるだろう。 )",
+  "best_quote_ko": "이 기술은 ... 정말 세상을 바꿀 것이다. )"
 }
 ]

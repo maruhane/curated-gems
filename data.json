@@ -37,10 +37,8 @@
     "best_quote_ja": "本当の富は銀行口座の数字だけではなく、時間、社会、心理、身体、経済の五つの側面からなる組み合わせだ。",
     "best_quote_ko": "진정한 부는 은행 계좌에 있는 돈뿐만 아니라, 시간, 사회적, 심리적, 신체적, 재정적 부라는 5가지 측면의 조합이다。"
   },
- {
+{
   "id": 1,
-  "source_language": "en",
-  "source": "The Verge",
   "link": "https://www.theverge.com/decoder-podcast-with-nilay-patel/758873/chatgpt-nick-turley-openai-ai-gpt-5-interview",
   "date": "2025-08-14",
   "title_en": "The head of ChatGPT on AI attachment, ads, and what’s next",

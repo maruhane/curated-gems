@@ -113,5 +113,32 @@
 "best_quote_zh": "如果紧接大爆炸后的宇宙膨胀速率仅快或慢一小部分，恒星和星系就永远无法形成。",
 "best_quote_ja": "ビッグバン直後の宇宙がわずかに速くあるいは遅く膨張していたなら、恒星や銀河は決して形成されなかっただろう。",
 "best_quote_ko": "빅뱅 직후 우주가 단지 조금만 더 빠르거나 느리게 팽창했더라면, 별과 은하는 결코 형성되지 않았을 것이다."
+},
+  {
+"id": 4,
+"link": "https://aeon.co/essays/mentorship-and-hope-can-solve-the-youth-mental-health-crisis",
+"date": "2025-09-09",
+"source_language": "en",
+"source": "Aeon",
+"title": "Mentorship and hope can solve the youth mental health crisis",
+"title_en": "Mentorship and hope can solve the youth mental health crisis",
+"title_zh": "导师与希望能缓解青年心理健康危机",
+"title_ja": "メンターと希望が若者のメンタルヘルス危機を解決できる",
+"title_ko": "멘토십과 희망이 청년 정신건강 위기를 해결할 수 있다",
+"summary": "Carol Graham argues that young people worldwide face a deep crisis of despair caused by job uncertainty, social fragmentation, pandemic scars and weakening civic supports. Her research shows that 'hope'—the conviction of agency and viable pathways—is more predictive of better life outcomes than momentary happiness. Practical remedies include mentorship, skills-focused education, community supports and accessible programmes that restore agency and aspirations.",
+"summary_en": "Carol Graham argues that young people worldwide face a deep crisis of despair caused by job uncertainty, social fragmentation, pandemic scars and weakening civic supports. Her research shows that 'hope'—the conviction of agency and viable pathways—is more predictive of better life outcomes than momentary happiness. Practical remedies include mentorship, skills-focused education, community supports and accessible programmes that restore agency and aspirations.",
+"summary_zh": "Carol Graham 指出，全球青年正因就业不确定、社会分裂、疫情后遗症与公民组织弱化而陷入严重绝望危机。她的研究表明，“希望”——对拥有行动能力与可行路径的信念——比短暂的幸福更能预测更好的生活结果。可行对策包括导师制度、以技能为导向的教育、社区支持和更易获得的项目以重建青年主体性与抱负。 ",
+"summary_ja": "キャロル・グラハムは、雇用の不確実性、社会の分断、パンデミックの影響、市民組織の弱体化によって世界の若者が深刻な絶望の危機に直面していると論じる。彼女の研究は、『希望』—行動の主体性と実行可能な道筋への確信—が一時的な幸福よりも人生の良好な結果を予測することを示す。実践的解決策としては、メンタリング、スキル重視の教育、地域の支援、アクセスしやすいプログラムなどが挙げられる。 ",
+"summary_ko": "캐롤 그레이엄은 고용 불확실성, 사회적 분열, 팬데믹의 후유증, 시민사회 약화로 인해 전 세계 청년들이 깊은 절망 위기에 놓였다고 주장한다. 그녀의 연구는 '희망'—주체성과 실현 가능한 경로에 대한 확신—이 일시적 행복보다 삶의 더 나은 결과를 예측한다고 보여준다. 실천적 해법으로는 멘토십, 기술 중심 교육, 지역사회 지원, 접근성 높은 프로그램이 포함된다. ",
+"tags": ["youth mental health", "hope", "mentorship", "education"],
+"tags_en": ["youth mental health", "hope", "mentorship", "education"],
+"tags_zh": ["青年心理健康", "希望", "导师制", "教育"],
+"tags_ja": ["若者のメンタルヘルス", "希望", "メンタリング", "教育"],
+"tags_ko": ["청년 정신건강", "희망", "멘토십", "교육"],
+"best_quote": "Hope is not just the belief that things will get better — it is the conviction that individuals have the agency and pathways to make their lives better.",
+"best_quote_en": "Hope is not just the belief that things will get better — it is the conviction that individuals have the agency and pathways to make their lives better. ",
+"best_quote_zh": "希望不仅是相信事情会好转——它是对个人拥有行动能力与可行路径以改善生活的确信。 ",
+"best_quote_ja": "希望は単に物事が良くなると信じることではない――それは個人が行動する能力と人生を改善するための道筋を持っているという確信である。 ",
+"best_quote_ko": "희망은 단순히 상황이 좋아질 것이라는 믿음이 아니다 — 그것은 개인이 스스로의 삶을 개선할 수 있는 주체성과 실현 가능한 경로를 가지고 있다는 확신이다. "
 }
 ]

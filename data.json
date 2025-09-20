@@ -282,5 +282,53 @@
   "best_quote_zh": "有些人满怀激情，想通过赚钱给家人更好的生活；另一些人只想让自己过得体面些，更有尊严地活着。",
   "best_quote_ja": "家族により良い生活を与えるためにお金を稼ぎたいと情熱に満ちている人もいれば、もう少し身なりを整えて尊厳を持って生きたいと願う人もいました。",
   "best_quote_ko": "어떤 이들은 가족에게 더 나은 삶을 주기 위해 돈을 벌겠다는 열정으로 가득 차 있었고, 어떤 이들은 그저 조금 더 나은 모습으로 품위 있게 살기를 원했습니다。"
+},
+  {
+  "id": 10,
+  "link": "https://fortelabs.com/blog/my-4-stage-system-for-learning-anything-new/",
+  "date": "2021-05-15",
+  "source_language": "en",
+  "source": "Forte Labs",
+  "title": "My 4-Stage System For Learning Anything New",
+  "title_en": "My 4-Stage System For Learning Anything New",
+  "title_zh": "我的4步学习任何新事物的方法论",
+  "title_ja": "新しいことを学ぶための私の4つのステップシステム",
+  "title_ko": "새로운 것을 배우기 위한 저의 4단계 시스템",
+  "summary_en": "The article introduces a 4-stage system for learning called EDES (Explore, Distill, Express, Socialize). It argues that effective learning is an active, creative process, not just passive consumption. The system guides learners to first explore information, then distill it, express their understanding by creating something tangible, and finally, socialize their work to refine their knowledge through feedback.",
+  "summary_zh": "文章介绍了一套名为 EDES（探索、提炼、表达、社交）的4步学习方法论。作者认为，有效的学习是一个主动的创造过程，而非被动地接收信息。该系统指导学习者首先探索信息，然后提炼出核心要点，通过创造具体事物来表达理解，最后通过分享和反馈来深化知识。",
+  "summary_ja": "この記事は、新しいことを学ぶための4つのステップシステム、EDES（Explore, Distill, Express, Socialize）を紹介している。効果的な学習は、単なる受動的な情報収集ではなく、能動的な創造プロセスであると主張する。このシステムは、学習者がまず情報を探索し、次にそれを要点に蒸留し、何か具体的なものを創造することで理解を表現し、最後に作品を共有してフィードバックを通じて知識を洗練させることを導く。",
+  "summary_ko": "이 기사는 EDES(탐색, 정제, 표현, 공유)라는 4단계 학습 시스템을 소개합니다. 저자는 효과적인 학습은 단순히 수동적인 정보 습득이 아니라 능동적인 창조 과정이라고 주장합니다. 이 시스템은 학습자가 먼저 정보를 탐색하고, 핵심을 정제하며, 구체적인 결과물을 만들어 이해를 표현하고, 마지막으로 자신의 작업을 공유하여 피드백을 통해 지식을 다듬도록 안내합니다.",
+  "tags_en": [
+    "Learning",
+    "Productivity",
+    "Knowledge Management",
+    "Self-improvement",
+    "Methodology"
+  ],
+  "tags_zh": [
+    "学习",
+    "效率",
+    "知识管理",
+    "自我提升",
+    "方法论"
+  ],
+  "tags_ja": [
+    "学習",
+    "生産性",
+    "知識管理",
+    "自己啓発",
+    "方法論"
+  ],
+  "tags_ko": [
+    "학습",
+    "생산성",
+    "지식 관리",
+    "자기계발",
+    "방법론"
+  ],
+  "best_quote_en": "The entire purpose of learning is not just to collect knowledge, but to use it to create something new.",
+  "best_quote_zh": "学习的全部目的不仅仅是收集知识，而是用它来创造新的事物。",
+  "best_quote_ja": "学習の目的は、単に知識を蓄えることではなく、それを使って何か新しいものを創造することなのです。",
+  "best_quote_ko": "배움의 궁극적인 목적은 단순히 지식을 모으는 것이 아니라, 그것을 활용해 새로운 것을 창조하는 것입니다。"
 }
 ]

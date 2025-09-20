@@ -140,5 +140,32 @@
 "best_quote_zh": "希望不仅是相信事情会好转——它是对个人拥有行动能力与可行路径以改善生活的确信。 ",
 "best_quote_ja": "希望は単に物事が良くなると信じることではない――それは個人が行動する能力と人生を改善するための道筋を持っているという確信である。 ",
 "best_quote_ko": "희망은 단순히 상황이 좋아질 것이라는 믿음이 아니다 — 그것은 개인이 스스로의 삶을 개선할 수 있는 주체성과 실현 가능한 경로를 가지고 있다는 확신이다. "
+},
+{
+"id": 4,
+"link": "[https://nautil.us/does-anybody-really-know-what-time-is-1223272/?\_sp=0049147c-f7d5-41b8-9ac0-9c9f42931cf4.1758383415686](https://nautil.us/does-anybody-really-know-what-time-is-1223272/?_sp=0049147c-f7d5-41b8-9ac0-9c9f42931cf4.1758383415686)",
+"date": "2025-07-08",
+"source_language": "en",
+"source": "Nautilus",
+"title": "Does Anybody Really Know What Time Is?",
+"title_en": "Does Anybody Really Know What Time Is?",
+"title_zh": "谁真的知道时间是什么？",
+"title_ja": "誰が本当に時間が何かを知っているのか？",
+"title_ko": "정말로 시간이 무엇인지 아는 사람은 있는가?",
+"summary": "In an interview with neuroscientist Dean Buonomano, the article argues that our experience of time is constructed by the brain rather than being a single internal clock. Multiple neural mechanisms—neural population dynamics, circadian oscillators and whole-brain timing—create interval timing, temporal flow and the capacity for "mental time travel," which enabled human planning, agriculture and cultural development. The piece explains how internal timers are calibrated to external clocks, how language and spatial metaphors shape temporal thought, and situates subjective time against open problems in physics about time's nature.",
+"summary_en": "In an interview with neuroscientist Dean Buonomano, the article argues that our experience of time is constructed by the brain rather than being a single internal clock. Multiple neural mechanisms—neural population dynamics, circadian oscillators and whole-brain timing—create interval timing, temporal flow and the capacity for 'mental time travel,' which enabled human planning, agriculture and cultural development. It also discusses calibration between internal and external clocks and how language spatializes time.",
+"summary_zh": "作者采访神经科学家Dean Buonomano，提出时间是大脑的产物：不是单一钟表，而是由不同尺度的神经动力学和生物钟组成。文章解释神经群体时钟、精细时间校准与外部钟表的配准，并把“心理时光旅行”视为人类能规划未来、发展农业与宗教的关键认知。还讨论语言空间隐喻、时间流感受与物理学中时间之谜。",
+"summary_ja": "神経科学者ディーン・ブオノマーノへのインタビューを通じ、記事は時間の体験が単一の内部時計ではなく脳によって構築されると論じる。神経ポピュレーションの動力学や概日性の振動、全脳的なタイミングが間隔の把握や「心理的時間旅行」を生み、人類の計画能力や農耕、文化形成に寄与したと説明する。内的時計と外的時計の較正や言語による時間の空間化も扱う。",
+"summary_ko": "신경과학자 딘 부오노마노와의 인터뷰에서, 글은 시간이 단일한 내부 시계가 아니라 뇌가 만들어내는 경험이라고 주장한다. 신경 집단 역학, 일주기 진동자, 전두엽을 포함한 전뇌 타이밍 등이 간격 감지와 '심리적 시간 여행' 능력을 생성해 인간의 계획능력·농경·문화 발전을 가능하게 했다는 내용이다. 내부 시계와 외부 시계의 보정, 언어의 시간 공간화도 설명한다.",
+"tags": ["time", "neuroscience", "mental time travel", "neural dynamics", "circadian clock"],
+"tags_en": ["time", "neuroscience", "mental time travel", "neural dynamics", "circadian clock"],
+"tags_zh": ["时间", "神经科学", "心理时光旅行", "神经动力学", "生物钟"],
+"tags_ja": ["時間", "神経科学", "心理的時間旅行", "神経ダイナミクス", "概日リズム"],
+"tags_ko": ["시간", "신경과학", "심리적 시간여행", "신경 역학", "일주기 시계"],
+"best_quote": "The accurate way to put it is that your whole brain is a timer.",
+"best_quote_en": "The accurate way to put it is that your whole brain is a timer.",
+"best_quote_zh": "更准确的说法是，你的整个大脑就是一个计时器。",
+"best_quote_ja": "より正確に言えば、あなたの脳全体がタイマーなのです。",
+"best_quote_ko": "더 정확히 말하면, 당신의 전체 뇌가 하나의 타이머입니다."
 }
 ]

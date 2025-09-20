@@ -194,5 +194,49 @@
 "best_quote_zh": "戒严令的宣布敲响了警钟，表明在2010年代中期开始获得影响力的极右翼已经演变成一个再也无法被忽视的派系。",
 "best_quote_ja": "戒厳令の宣言は警鐘となり、2010年代半ばに影響力を持ち始めた極右が、もはや無視できない派閥に進化したことを示した。",
 "best_quote_ko": "계엄령 선포는 2010년대 중반부터 영향력을 얻기 시작한 극우가 더 이상 무시할 수 없는 파벌로 발전했음을 보여주는 경종을 울렸다."
+},
+{
+  "id": 5,
+  "link": "https://toyokeizai.net/articles/-/905945",
+  "date": "2025-09-19",
+  "source_language": "ja",
+  "source": "東洋経済オンライン",
+  "title": "系统的「近代化」是尤其在大企业で遅れている。『DX後進国』日本で総合コンサルティングが勢いを増す現実",
+  "title_en": "System 'modernization' is lagging, especially in large companies. The reality of the growing momentum of general consulting in 'DX underdeveloped' Japan",
+  "title_zh": "系统的“现代化”落后，尤其是在大公司。 综合咨询在“DX不发达国家”的日本发展势头强劲的现实",
+  "title_ja": "システムの「近代化」は特に大企業で遅れている。『DX後進国』日本で総合コンサルティングが勢いを増す現実",
+  "title_ko": "시스템의 '현대화'는 특히 대기업에서 뒤쳐져 있습니다. 'DX 후진국' 일본에서 종합 컨설팅이 탄력을 받고 있는 현실",
+  "summary_ja": "日本、特に大企業は、レガシーシステムの老朽化により「2025年の崖」の危機に直面している。本稿は、社内のIT人材不足、システムの「スパゲッティ化」した複雑さ、そして厳格な部門間の壁といった、デジタルトランスフォーメーション（DX）が停滞する核心的な理由を包括的に分析する。このような背景の中、総合コンサルティングファームはもはや単なるアドバイザーではなく、「伴走型」の支援パートナーとして深く関与し、トップレベルの戦略設計からシステム実装までの全プロセスに参加している。生成AIの波に直面し、記事は企業が防御的なシステム更新から積極的な「攻めのDX」へと転換する緊急の必要性を強調して締めくくっている。",
+  "summary_en": "Japan, especially its large corporations, is facing the '2025 Cliff' crisis due to aging legacy systems. The article provides a comprehensive analysis of the core reasons for stalled Digital Transformation (DX), including the shortage of in-house IT talent, 'spaghetti-like' system complexity, and rigid departmental silos. In this context, comprehensive consulting firms are no longer just advisors but have become deeply involved as 'side-by-side' support partners, participating in the entire process from top-level strategy design to system implementation. Facing the wave of generative AI, the article concludes by emphasizing the urgent need for companies to shift from defensive system updates to proactive, 'offensive DX'.",
+  "summary_zh": "日本，特别是大型企业，正因遗留系统老化而面临“2025悬崖”的危机。文章全面剖析了企业内部IT人才短缺、系统如“意大利面条”般复杂交错、以及部门间壁垒森严等导致数字化转型（DX）停滞不前的核心原因。在此背景下，综合咨询公司不再仅是顾问，而是作为“伴走型”支援伙伴深度介入，从顶层战略设计到系统落地执行全程参与。面对生成式AI的浪潮，文章最后强调企业亟需从防御性的系统更新转向主动的“进攻型DX”。",
+  "summary_ko": "일본, 특히 대기업들은 노후화된 레거시 시스템으로 인해 '2025년의 절벽' 위기에 직면해 있습니다. 이 기사는 사내 IT 인재 부족, '스파게티'처럼 얽힌 시스템의 복잡성, 견고한 부서 간 장벽 등 디지털 전환(DX)이 정체된 핵심 원인을 종합적으로 분석합니다. 이러한 배경 속에서 종합 컨설팅 회사는 더 이상 단순한 조언자가 아니라, 최고 수준의 전략 설계부터 시스템 구현까지 전 과정에 참여하는 '동반자형' 지원 파트너로서 깊숙이 관여하고 있습니다. 생성형 AI의 물결에 맞서, 기사는 기업들이 방어적인 시스템 업데이트에서 벗어나 적극적인 '공격형 DX'로 전환해야 할 시급한 필요성을 강조하며 마무리됩니다。",
+  "tags_ja": [
+    "デジタルトランスフォーメーション",
+    "日本企業",
+    "コンサルティング業界",
+    "システム近代化"
+  ],
+  "tags_en": [
+    "Digital Transformation",
+    "Japanese Companies",
+    "Consulting Industry",
+    "System Modernization"
+  ],
+  "tags_zh": [
+    "数字化转型",
+    "日本企业",
+    "咨询行业",
+    "系统现代化"
+  ],
+  "tags_ko": [
+    "디지털 전환",
+    "일본 기업",
+    "컨설팅 산업",
+    "시스템 현대화"
+  ],
+  "best_quote_ja": "ITシステムの複雑化などにより、2025年以降年間で最大12兆円の経済損失が発生する可能性がある。生成AI全盛の中、日本企業には守りだけでなく攻めのDXも求められている。",
+  "best_quote_en": "Factors such as the complication of IT systems could lead to an annual economic loss of up to 12 trillion yen after 2025. In the golden age of generative AI, Japanese companies are required not only to defend but also to have an offensive DX.",
+  "best_quote_zh": "IT系统的复杂化等因素可能导致2025年后每年高达12万亿日元的经济损失。在生成式AI的全盛时期，日本企业不仅需要防守，还需要进攻性的DX。",
+  "best_quote_ko": "IT 시스템의 복잡화 등으로 인해 2025년 이후 연간 최대 12조 엔의 경제적 손실이 발생할 수 있습니다. 생성 AI의 전성기 속에서 일본 기업에게는 수비뿐만 아니라 공격적인 DX도 요구됩니다。"
 }
 ]

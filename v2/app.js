@@ -174,11 +174,12 @@ window.__countsForCurrentQuery = counts;
 
     // 渲染结果
     render(view);
-    // 彩蛋：输入 magic 试试看
-if (query === 'magic') {
-  alert('✨ 哇！你发现了隐藏功能！');
-}
     renderSources(['all', ...new Set(raw.map(x => x.source))]);
+    // 彩蛋：输入 magic 试试看
+    if (query === 'magic') {
+      alert('✨ 哇！你发现了隐藏功能！');
+    }
+}
 
 /**
  * 渲染数据源选择器

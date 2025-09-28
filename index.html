@@ -8,65 +8,65 @@
     <link rel="stylesheet" href="./styles.css" />
     
     <style>
-    /* 原有的下拉菜单样式 */
-    .lang-dropdown {
-        position: relative;
-        display: inline-block;
-    }
+/* 原有的下拉菜单样式 - 保持不变 */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-    #lang-dropdown-toggle {
-        background-color: #f0f0f0;
-        color: #333;
-        padding: 8px 16px;
-        border: 1px solid #ddd;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 14px;
-        min-width: 60px;
-        text-align: center;
-        user-select: none;
-    }
+#lang-dropdown-toggle {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 60px;
+    text-align: center;
+    user-select: none;
+}
 
-    #lang-dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: white;
-        min-width: 120px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
-        z-index: 1;
-        border-radius: 8px;
-        overflow: hidden;
-        margin-top: 5px;
-        right: 0;
-    }
+#lang-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 5px;
+    right: 0;
+}
 
-    .lang-dropdown.show #lang-dropdown-content {
-        display: block;
-    }
+.lang-dropdown.show #lang-dropdown-content {
+    display: block;
+}
 
-    #lang-dropdown-content .lang-btn {
-        color: black;
-        padding: 10px 15px;
-        text-decoration: none;
-        display: block;
-        width: 100%;
-        text-align: left;
-        border: none;
-        background: none;
-        cursor: pointer;
-        font-size: 14px;
-    }
-    
-    #lang-dropdown-content .lang-btn.active {
-        font-weight: bold;
-        background-color: #f0f0f0; 
-    }
+#lang-dropdown-content .lang-btn {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+}
 
-    #lang-dropdown-content .lang-btn:hover:not(.active) {
-        background-color: #f9f9f9;
-    }
+#lang-dropdown-content .lang-btn.active {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
 
-    /* ===== 这是最终解决方案，请用它替换掉上次的布局代码 ===== */
+#lang-dropdown-content .lang-btn:hover:not(.active) {
+    background-color: #f9f9f9;
+}
+
+/* ===== 核心布局代码 - 略微修改以支持日语竖排 ===== */
 
 /* 1. 设置头部主容器为 Flex 布局 */
 .header-main {
@@ -79,7 +79,7 @@
 /* 2. 设置左侧标题区域，让其能灵活伸缩 */
 .logo-area {
     flex-grow: 1; /* 允许它占据所有剩余空间 */
-    min-width: 0; /* 【关键修复】允许此区域在必要时收缩，这是让内部文字换行的前提 */
+    min-width: 0; /* 允许此区域在必要时收缩，这是让内部文字换行的前提 */
 }
 
 /* 3. 确保右侧控制区宽度稳定 */
@@ -93,11 +93,47 @@
 
 /* 4. 强制副标题可以正常换行 */
 .logo-area .subtitle {
-    white-space: normal !important;   /* 【关键修复】覆盖全局样式，允许文字自动换行 */
+    white-space: normal !important;    /* 覆盖全局样式，允许文字自动换行 */
     word-break: break-word !important;/* 确保长单词也能被正确断开 */
 }
- /* ===== 新增代码结束 ===== */
-    </style>
+
+/* ===== 【关键新增】日语竖排适配 ===== */
+
+/* 5. 针对日语环境的 H1 标题 */
+html[lang="ja"] .logo-area h1 {
+    /* 启用竖排书写模式：从右到左，从上到下 */
+    writing-mode: vertical-rl;
+    /* 确保竖排文本在容器内能正常显示，不被挤压 */
+    white-space: nowrap;
+    /* 调整竖排标题的字号，使其视觉上更协调 */
+    font-size: 40px; /* 您可能需要根据实际情况微调此值 */
+    /* 调整标题和副标题的间距 */
+    margin-right: 15px; /* 标题与副标题之间的横向间距 */
+    line-height: 1.2;
+}
+
+/* 6. 针对日语环境的副标题（让它保持在标题的左侧） */
+html[lang="ja"] .logo-area .subtitle {
+    /* 将 logo-area 内部设置为 Flex 容器 */
+    display: flex;
+    /* 主轴方向设置为横向 (默认) */
+    flex-direction: row;
+    /* 元素顶部对齐 */
+    align-items: flex-start;
+    /* 副标题的样式调整 */
+    font-size: 16px; /* 您可能需要根据实际情况微调此值 */
+    padding-top: 10px; /* 微调副标题相对顶部的位置，使其与竖排标题底部对齐 */
+}
+
+/* 7. 调整日语环境下 .logo-area 的 Flex 布局，以容纳竖排 H1 和横排副标题 */
+html[lang="ja"] .logo-area {
+    /* 改变 logo-area 自身的 display 属性来容纳竖排的 h1 */
+    display: flex;
+    flex-direction: row; /* 横向排列 H1 和 P */
+    align-items: flex-start; /* 顶部对齐 */
+}
+/* ===== 新增代码结束 ===== */
+</style>
 <body>
     <header class="container">
         <div class="header-main">

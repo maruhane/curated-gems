@@ -7,8 +7,8 @@
     <title data-zh="羽的文选" data-en="Jemila’s Picks" data-ja="羽のセレクション" data-ko="수우의 컬렉션">羽的文选</title>
     <link rel="stylesheet" href="./styles.css" />
     
-    <style>
-/* 原有的下拉菜单样式 - 保持不变 */
+   <style>
+/* ============= 下拉菜单样式（保留原样） ============= */
 .lang-dropdown {
     position: relative;
     display: inline-block;
@@ -66,84 +66,62 @@
     background-color: #f9f9f9;
 }
 
-/* ===== 核心布局代码 - 略微修改以支持日语竖排 ===== */
+/* ============= 核心布局（统一横排，并尽量不改字号） ============= */
 
-/* 1. 设置头部主容器为 Flex 布局 */
-.header-main {
-    display: flex;
-    justify-content: space-between; /* 两端对齐 */
-    align-items: flex-start;        /* 顶部对齐 (处理副标题换行后更美观) */
-    gap: 20px;                      /* 左右内容块的间距 */
-}
-
-/* 2. 设置左侧标题区域，让其能灵活伸缩 */
-.logo-area {
-    flex-grow: 1; /* 允许它占据所有剩余空间 */
-    min-width: 0; /* 允许此区域在必要时收缩，这是让内部文字换行的前提 */
-}
-
-/* 3. 确保右侧控制区宽度稳定 */
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-shrink: 0; /* 【关键】禁止此区域收缩，确保它永远不会被挤下去 */
-    padding-top: 5px; /* 微调，让右侧控件和左侧主标题视觉上更对齐 */
-}
-
-/* 4. 强制副标题可以正常换行 */
-.logo-area .subtitle {
-    white-space: normal !important;    /* 覆盖全局样式，允许文字自动换行 */
-    word-break: break-word !important;/* 确保长单词也能被正确断开 */
-}
-
-/* ===== 统一横排（替代原来的日语竖排规则） ===== */
-
-/* 保证 header 一行内左右对齐，不换行 */
+/* 确保 header 一行内左右对齐，不换行（关键） */
 .header-main {
     display: flex;
     justify-content: space-between;
-    align-items: center;   /* 改为居中对齐，避免控件掉到下一行 */
+    align-items: center;   /* 垂直居中，避免控件被推到下一行 */
     gap: 20px;
-    flex-wrap: nowrap;     /* 关键：禁止换行，确保右侧控件不会被挤到下方 */
+    flex-wrap: nowrap;     /* 禁止换行，保持标题与右侧控件在同一行 */
 }
 
-/* 左侧标题区域：垂直堆叠标题 + 副标题，允许缩小换行 */
+/* 左侧标题区域：竖直堆叠标题 + 副标题，允许内部换行，且不在此处改变 font-size */
 .logo-area {
     flex: 1 1 auto; /* 允许伸缩，占据剩余空间 */
-    min-width: 0;   /* 允许内部内容换行而不撑破布局 */
+    min-width: 0;   /* 允许内部文字换行而不撑破布局 */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-/* 标题：强制横排（覆盖任何写法模式），并允许换行 */
+/* 标题：强制横排（覆盖可能残留的竖排规则），但不要设置 font-size */
 .logo-area h1 {
-    writing-mode: horizontal-tb !important; /* 确保所有语言都是横排 */
-    white-space: normal !important;
+    writing-mode: horizontal-tb !important; /* 确保所有语言横排 */
+    white-space: normal !important;         /* 默认允许换行（日语单独处理） */
     word-break: break-word;
     margin: 0;
-    font-size: 28px; /* 如需更大/小可调整 */
     line-height: 1.1;
+    /* 注意：刻意不设置 font-size，以免影响各语言已有的显示大小 */
 }
 
-/* 副标题在标题下方，保持正常换行 */
+/* 副标题：保持正常换行和继承字号 */
 .logo-area .subtitle {
     margin: 6px 0 0 0;
-    font-size: 14px;
     white-space: normal !important;
+    word-break: break-word;
 }
 
-/* 右侧控件保持固定宽度并禁止收缩（已接近你原来的写法） */
+/* 右侧控件保持固定布局，不收缩，避免被挤下去 */
 .header-controls {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-shrink: 0;
-    padding-top: 0; /* 垂直居中，不需要额外上内边距 */
+    flex-shrink: 0; /* 不允许右侧收缩到下一行 */
+    padding-top: 0;
 }
 
-/* 小屏幕友好：窄屏时改为垂直堆叠，避免内容过小 */
+/* ============= 日语专用：单行保护（避免被拆成两行），但不改字号 ============= */
+/* 仅在 html[lang="ja"] 时启用：让标题与副标题保持单行，超出显示省略号 */
+html[lang="ja"] .logo-area h1,
+html[lang="ja"] .logo-area .subtitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 超长用省略号，不会把右侧控件推到下一行 */
+}
+
+/* ============= 小屏幕友好：当屏幕窄时改为堆叠（避免字体被挤压） ============= */
 @media (max-width: 760px) {
     .header-main {
         flex-direction: column;
@@ -156,7 +134,19 @@
     }
 }
 
-</style>
+/* ============= 兼容补充（防止其他规则影响标题大小或写排） ============= */
+/* 如果页面某处有强规则设置全局 writing-mode 或 font-size，优先保证 h1 恢复默认横排与继承字号 */
+.logo-area h1,
+.logo-area .subtitle {
+    /* 不覆写字体族或字号，保持站点主样式的控制权 */
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* 结束 */
+    </style>
+
 <body>
     <header class="container">
         <div class="header-main">

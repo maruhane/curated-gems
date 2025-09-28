@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>孙玲的精选内容</title>
+    <title data-zh="孙玲的精选内容" data-en="Sunling's Curated Gems" data-ja="孫玲の厳選コンテンツ" data-ko="손령의 엄선된 콘텐츠">孙玲的精选内容</title>
     <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -12,23 +12,29 @@
     <header class="container">
         <div class="header-main">
             <div class="logo-area">
-                <h1 data-zh="精选内容聚合" data-en="Curated Content Hub">精选内容聚合</h1>
-                <p class="subtitle" data-zh="发现优质文章、播客和资源" data-en="Discover quality articles, podcasts and resources">发现优质文章、播客和资源</p>
+                <h1 data-zh="精选内容聚合" data-en="Curated Content Hub" data-ja="厳選コンテンツ集" data-ko="엄선된 콘텐츠 모음">精选内容聚合</h1>
+                <p class="subtitle" data-zh="发现优质文章、播客和资源" data-en="Discover quality articles, podcasts and resources" data-ja="良質な記事・ポッドキャスト・リソースを発見" data-ko="우수한 기사, 팟캐스트 및 자료를 발견하세요">发现优质文章、播客和资源</p>
             </div>
             <div class="header-controls">
-                <div class="control-item">
-                    <button id="lang-toggle" class="control-button lang-toggle" title="切换语言 / Switch Language">
-                        <span class="current-lang" data-zh="中" data-en="EN">中</span>
-                    </button>
+                <div class="control-item lang-buttons">
+                    <!-- 四语切换按钮 -->
+                    <button class="lang-btn" data-lang="zh" title="中文">中</button>
+                    <button class="lang-btn" data-lang="en" title="English">EN</button>
+                    <button class="lang-btn" data-lang="ja" title="日本語">日本語</button>
+                    <button class="lang-btn" data-lang="ko" title="한국어">한국어</button>
                 </div>
                 <div class="control-item version-selector">
                     <div class="version-tabs">
-                        <button class="version-tab" data-version="1" data-zh="基础版" data-en="Basic">基础版</button>
-                        <button class="version-tab" data-version="2" data-zh="搜索版" data-en="Search">搜索版</button>
-                        <button class="version-tab" data-version="3" data-zh="筛选版" data-en="Filter">筛选版</button>
-                        <button class="version-tab" data-version="4" data-zh="动态版" data-en="Dynamic">动态版</button>
+                        <button class="version-tab" data-version="1" data-zh="基础版" data-en="Basic" data-ja="基本版" data-ko="기본판">基础版</button>
+                        <button class="version-tab" data-version="2" data-zh="搜索版" data-en="Search" data-ja="検索版" data-ko="검색판">搜索版</button>
+                        <button class="version-tab" data-version="3" data-zh="筛选版" data-en="Filter" data-ja="フィルター版" data-ko="필터판">筛选版</button>
+                        <button class="version-tab" data-version="4" data-zh="动态版" data-en="Dynamic" data-ja="ダイナミック版" data-ko="다이나믹판">动态版</button>
                     </div>
-                    <small id="hint" class="version-hint"></small>
+                    <small id="hint" class="version-hint"
+                        data-zh="当前：v1（地址可加 ?v=1/2/3/4 切换）"
+                        data-en="Current: v1 (Add ?v=1/2/3/4 to URL to switch)"
+                        data-ja="現在：v1（URLに ?v=1/2/3/4 を追加して切り替え）"
+                        data-ko="현재: v1 (URL에 ?v=1/2/3/4 를 추가하여 전환)">当前：v1（地址可加 ?v=1/2/3/4 切换）</small>
                 </div>
             </div>
         </div>
@@ -36,92 +42,110 @@
     <main class="container">
         <div id="controls"></div>
         <div id="list" class="grid"></div>
-        <p id="empty" class="hidden" data-zh="加载中…" data-en="Loading...">加载中…</p>
+        <p id="empty" class="hidden"
+           data-zh="加载中…" data-en="Loading..." data-ja="読み込み中…" data-ko="로딩 중…">加载中…</p>
     </main>
+
     <script>
-        // Language management
+        // ---------- 初始化（无需修改） ----------
+        // 页面级语言状态（index.html 管理）
         let currentLang = 'zh';
-        
+
+        // 读取 URL 参数
+        const params = new URLSearchParams(location.search);
+        const ver = params.get("v") || "1";
+        const langParam = (params.get("lang") || "zh").toLowerCase();
+
+        const SUPPORTED = ['zh','en','ja','ko'];
+
+        // 将页面元素按选中语言替换显示
         function updateLanguage(lang) {
+            if (!SUPPORTED.includes(lang)) lang = 'zh';
             currentLang = lang;
-            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-            
-            // Update all elements with data-zh and data-en attributes
-            document.querySelectorAll('[data-zh][data-en]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`);
+
+            // 设置 html lang 属性
+            const langMap = { zh: 'zh-CN', en: 'en', ja: 'ja', ko: 'ko' };
+            document.documentElement.lang = langMap[lang] || 'zh-CN';
+
+            // 更新所有含 data-zh/data-en/data-ja/data-ko 的元素（优先取 data-lang）
+            document.querySelectorAll('[data-zh],[data-en],[data-ja],[data-ko]').forEach(el => {
+                const v = el.getAttribute(`data-${lang}`);
+                if (v !== null) el.textContent = v;
             });
-            
-            // Update option texts
-            document.querySelectorAll('option[data-zh][data-en]').forEach(option => {
-                option.textContent = option.getAttribute(`data-${lang}`);
+
+            // 更新 <option> 或类似（如果你有）
+            document.querySelectorAll('option[data-zh],[option][data-en],[option][data-ja],[option][data-ko]').forEach(option=>{
+                const v = option.getAttribute(`data-${lang}`);
+                if (v !== null) option.textContent = v;
             });
-            
-            // Update hint text
-            const currentVer = new URLSearchParams(location.search).get("v") || "1";
+
+            // 更新 hint 文本（使用元素的 data-* 已处理，但为了兼容旧的也保底设置）
+            const currentVer = ver;
             const hintTexts = {
                 zh: `当前：v${currentVer}（地址可加 ?v=1/2/3/4 切换）`,
-                en: `Current: v${currentVer} (Add ?v=1/2/3/4 to URL to switch)`
+                en: `Current: v${currentVer} (Add ?v=1/2/3/4 to URL to switch)`,
+                ja: `現在：v${currentVer}（URLに ?v=1/2/3/4 を追加して切り替え）`,
+                ko: `현재: v${currentVer} (URL에 ?v=1/2/3/4 를 추가하여 전환)`
             };
-            document.getElementById("hint").textContent = hintTexts[lang];
-            
-            // Trigger re-render if data is already loaded
-            if (window.currentData) {
+            const hintEl = document.getElementById('hint');
+            if (hintEl) hintEl.textContent = hintTexts[lang] || hintTexts['zh'];
+
+            // 更新语言按钮高亮
+            document.querySelectorAll('.lang-btn').forEach(btn=>{
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // 如果 data 已存在，尝试调用页面提供的渲染函数进行重新渲染
+            if (window.currentData && typeof window.renderWithLanguage === 'function') {
                 window.renderWithLanguage(window.currentData, lang);
             }
         }
-        
-        // Initialize parameters
-        const params = new URLSearchParams(location.search);
-        const ver = params.get("v") || "1";
-        const lang = params.get("lang") || "zh";
-        
-        // 不再需要设置select的值，因为已经改为按钮
-        // document.getElementById("ver").value = ver;
-        
-        // Update language on load
-        updateLanguage(lang);
-        
-        // Version change handler - 不再需要，因为已经改为按钮
-        // document.getElementById("ver").addEventListener("change", (e) => {
-        //     const u = new URL(location.href);
-        //     u.searchParams.set("v", e.target.value);
-        //     u.searchParams.set("lang", currentLang);
-        //     location.href = u.toString();
-        // });
-        
-        // Language change handler
-        document.getElementById("lang-toggle").addEventListener("click", () => {
-            const newLang = currentLang === 'zh' ? 'en' : 'zh';
-            const u = new URL(location.href);
-            u.searchParams.set("lang", newLang);
-            location.href = u.toString();
+
+        // 初始设置
+        updateLanguage(langParam);
+
+        // 语言按钮点击（优先使用 app.js 提供的 window.changeLang，否则改 URL 刷新）
+        document.querySelectorAll('.lang-btn').forEach(btn=>{
+            btn.addEventListener('click', () => {
+                const newLang = btn.dataset.lang;
+                if (!newLang) return;
+                // 如果页面脚本（vX 的 app.js）提供 changeLang，优先调用（它会更新渲染而不刷新）
+                if (typeof window.changeLang === 'function') {
+                    window.changeLang(newLang);
+                    // 同步 index.html 的显示（app.js 也可能自行渲染）
+                    updateLanguage(newLang);
+                } else {
+                    // 回退：通过改变 URL 刷新页面以加载对应语言数据
+                    const u = new URL(location.href);
+                    u.searchParams.set('lang', newLang);
+                    // 保留版本参数 v
+                    u.searchParams.set('v', ver);
+                    location.href = u.toString();
+                }
+            });
         });
-        
-        // 版本选项卡处理
+
+        // 版本选项卡处理（点击后跳转并保留 lang）
         const versionTabs = document.querySelectorAll('.version-tab');
-        const currentVersion = ver;
-        
-        // 设置当前版本为激活状态
         versionTabs.forEach(tab => {
-            if(tab.dataset.version === currentVersion) {
-                tab.classList.add('active');
-            }
-            
-            // 添加点击事件
+            // 初始高亮
+            if (tab.dataset.version === ver) tab.classList.add('active');
             tab.addEventListener('click', () => {
                 const version = tab.dataset.version;
                 const u = new URL(location.href);
-                u.searchParams.set("v", version);
-                u.searchParams.set("lang", currentLang);
+                u.searchParams.set('v', version);
+                u.searchParams.set('lang', currentLang);
                 location.href = u.toString();
             });
         });
-        
-        // Load version-specific script
-        const s = document.createElement("script");
-        s.src = `./v${ver}/app.js`;
-        s.defer = true;
-        document.body.appendChild(s);
+
+        // 动态加载对应版本的脚本（v1/v2/...）
+        (function loadVersionScript() {
+            const s = document.createElement("script");
+            s.src = `./v${ver}/app.js`;
+            s.defer = true;
+            document.body.appendChild(s);
+        })();
     </script>
 </body>
 

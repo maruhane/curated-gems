@@ -6,7 +6,70 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title data-zh="孙玲的精选内容" data-en="Sunling's Curated Gems" data-ja="孫玲の厳選コンテンツ" data-ko="손령의 엄선된 콘텐츠">孙玲的精选内容</title>
     <link rel="stylesheet" href="./styles.css" />
-</head>
+    
+    <style>
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        #lang-dropdown-toggle {
+            /* 这是您想要的圆形按钮样式 */
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px; /* 圆角样式 */
+            cursor: pointer;
+            font-size: 14px;
+            min-width: 60px;
+            text-align: center;
+            user-select: none; /* 防止点击时选中文本 */
+        }
+
+        #lang-dropdown-content {
+            display: none; /* 默认隐藏 */
+            position: absolute;
+            background-color: white;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 5px;
+            right: 0; /* 让菜单靠右对齐 */
+        }
+
+        /* 这个 'show' 类由 JS 添加，用于显示下拉菜单 */
+        .lang-dropdown.show #lang-dropdown-content {
+            display: block;
+        }
+
+        #lang-dropdown-content .lang-btn {
+            color: black;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        /* 高亮当前选中的语言 */
+        #lang-dropdown-content .lang-btn.active {
+            font-weight: bold;
+            background-color: #f0f0f0; 
+        }
+
+        /* 鼠标悬停在选项上时的效果 */
+        #lang-dropdown-content .lang-btn:hover:not(.active) {
+            background-color: #f9f9f9;
+        }
+    </style>
+    </head>
 
 <body>
     <header class="container">
@@ -16,12 +79,15 @@
                 <p class="subtitle" data-zh="发现优质文章、播客和资源" data-en="Discover quality articles, podcasts and resources" data-ja="良質な記事・ポッドキャスト・リソースを発見" data-ko="우수한 기사, 팟캐스트 및 자료를 발견하세요">发现优质文章、播客和资源</p>
             </div>
             <div class="header-controls">
-                <div class="control-item lang-buttons">
-                    <!-- 四语切换按钮 -->
-                    <button class="lang-btn" data-lang="zh" title="中文">中</button>
-                    <button class="lang-btn" data-lang="en" title="English">EN</button>
-                    <button class="lang-btn" data-lang="ja" title="日本語">日本語</button>
-                    <button class="lang-btn" data-lang="ko" title="한국어">한국어</button>
+                
+                <div class="control-item lang-dropdown">
+                    <button id="lang-dropdown-toggle">中</button>
+                    <div id="lang-dropdown-content">
+                        <button class="lang-btn" data-lang="zh" title="中文">中文</button>
+                        <button class="lang-btn" data-lang="en" title="English">English</button>
+                        <button class="lang-btn" data-lang="ja" title="日本語">日本語</button>
+                        <button class="lang-btn" data-lang="ko" title="한국어">한국어</button>
+                    </div>
                 </div>
                 <div class="control-item version-selector">
                     <div class="version-tabs">
@@ -43,43 +109,30 @@
         <div id="controls"></div>
         <div id="list" class="grid"></div>
         <p id="empty" class="hidden"
-           data-zh="加载中…" data-en="Loading..." data-ja="読み込み中…" data-ko="로딩 중…">加载中…</p>
+            data-zh="加载中…" data-en="Loading..." data-ja="読み込み中…" data-ko="로딩 중…">加载中…</p>
     </main>
 
     <script>
         // ---------- 初始化（无需修改） ----------
-        // 页面级语言状态（index.html 管理）
         let currentLang = 'zh';
-
-        // 读取 URL 参数
         const params = new URLSearchParams(location.search);
         const ver = params.get("v") || "1";
         const langParam = (params.get("lang") || "zh").toLowerCase();
-
         const SUPPORTED = ['zh','en','ja','ko'];
 
-        // 将页面元素按选中语言替换显示
         function updateLanguage(lang) {
             if (!SUPPORTED.includes(lang)) lang = 'zh';
             currentLang = lang;
-
-            // 设置 html lang 属性
             const langMap = { zh: 'zh-CN', en: 'en', ja: 'ja', ko: 'ko' };
             document.documentElement.lang = langMap[lang] || 'zh-CN';
-
-            // 更新所有含 data-zh/data-en/data-ja/data-ko 的元素（优先取 data-lang）
             document.querySelectorAll('[data-zh],[data-en],[data-ja],[data-ko]').forEach(el => {
                 const v = el.getAttribute(`data-${lang}`);
                 if (v !== null) el.textContent = v;
             });
-
-            // 更新 <option> 或类似（如果你有）
             document.querySelectorAll('option[data-zh],[option][data-en],[option][data-ja],[option][data-ko]').forEach(option=>{
                 const v = option.getAttribute(`data-${lang}`);
                 if (v !== null) option.textContent = v;
             });
-
-            // 更新 hint 文本（使用元素的 data-* 已处理，但为了兼容旧的也保底设置）
             const currentVer = ver;
             const hintTexts = {
                 zh: `当前：v${currentVer}（地址可加 ?v=1/2/3/4 切换）`,
@@ -89,46 +142,49 @@
             };
             const hintEl = document.getElementById('hint');
             if (hintEl) hintEl.textContent = hintTexts[lang] || hintTexts['zh'];
-
+            
             // 更新语言按钮高亮
             document.querySelectorAll('.lang-btn').forEach(btn=>{
                 btn.classList.toggle('active', btn.dataset.lang === lang);
             });
+            
+            // === 新增：更新下拉菜单主按钮的文本 ===
+            const toggleBtn = document.getElementById('lang-dropdown-toggle');
+            if (toggleBtn) {
+                const langTextMap = { zh: '中', en: 'EN', ja: '日本語', ko: '한국어' };
+                toggleBtn.textContent = langTextMap[lang] || '中';
+            }
+            // === 新增结束 ===
 
-            // 如果 data 已存在，尝试调用页面提供的渲染函数进行重新渲染
             if (window.currentData && typeof window.renderWithLanguage === 'function') {
                 window.renderWithLanguage(window.currentData, lang);
             }
         }
 
-        // 初始设置
         updateLanguage(langParam);
 
-        // 语言按钮点击（优先使用 app.js 提供的 window.changeLang，否则改 URL 刷新）
         document.querySelectorAll('.lang-btn').forEach(btn=>{
             btn.addEventListener('click', () => {
                 const newLang = btn.dataset.lang;
-                if (!newLang) return;
-                // 如果页面脚本（vX 的 app.js）提供 changeLang，优先调用（它会更新渲染而不刷新）
+                if (!newLang || newLang === currentLang) return;
+
+                // === 新增：选择后关闭下拉菜单 ===
+                document.querySelector('.lang-dropdown').classList.remove('show');
+
                 if (typeof window.changeLang === 'function') {
                     window.changeLang(newLang);
-                    // 同步 index.html 的显示（app.js 也可能自行渲染）
                     updateLanguage(newLang);
                 } else {
-                    // 回退：通过改变 URL 刷新页面以加载对应语言数据
                     const u = new URL(location.href);
                     u.searchParams.set('lang', newLang);
-                    // 保留版本参数 v
                     u.searchParams.set('v', ver);
                     location.href = u.toString();
                 }
             });
         });
 
-        // 版本选项卡处理（点击后跳转并保留 lang）
         const versionTabs = document.querySelectorAll('.version-tab');
         versionTabs.forEach(tab => {
-            // 初始高亮
             if (tab.dataset.version === ver) tab.classList.add('active');
             tab.addEventListener('click', () => {
                 const version = tab.dataset.version;
@@ -138,8 +194,26 @@
                 location.href = u.toString();
             });
         });
+        
+        // === 新增：下拉菜单的开关逻辑 ===
+        const dropdownContainer = document.querySelector('.lang-dropdown');
+        const toggleBtn = document.getElementById('lang-dropdown-toggle');
 
-        // 动态加载对应版本的脚本（v1/v2/...）
+        if (toggleBtn && dropdownContainer) {
+            toggleBtn.addEventListener('click', (event) => {
+                // 阻止事件冒泡，防止触发下面的 window 点击事件
+                event.stopPropagation();
+                dropdownContainer.classList.toggle('show');
+            });
+            // 当点击页面其他地方时，关闭下拉菜单
+            window.addEventListener('click', () => {
+                if (dropdownContainer.classList.contains('show')) {
+                    dropdownContainer.classList.remove('show');
+                }
+            });
+        }
+        // === 新增结束 ===
+
         (function loadVersionScript() {
             const s = document.createElement("script");
             s.src = `./v${ver}/app.js`;

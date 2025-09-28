@@ -96,19 +96,23 @@
     white-space: normal !important;   /* 【关键修复】覆盖全局样式，允许文字自动换行 */
     word-break: break-word !important;/* 确保长单词也能被正确断开 */
 }
-       /* 针对日语标题优化排版 */
-html[lang="ja"] .logo-area h1,
-html[lang="ja"] .logo-area .subtitle {
-    white-space: normal !important;      /* 允许换行 */
-    word-break: break-word !important;   /* 遇长单词断行 */
-    line-height: 1.3;                    /* 调整行高，让一行看起来更紧凑 */
+      /* 针对日语标题优化横向排版 */
+html[lang="ja"] .logo-area {
+    min-width: 200px;      /* 给日语标题留更多宽度 */
 }
-/* 如果副标题过长，最多两行显示，不换行则隐藏多余 */
-html[lang="ja"] .logo-area .subtitle {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+
+html[lang="ja"] .logo-area h1 {
+    font-size: 1.4rem;      /* 根据需要调整大小 */
+    white-space: nowrap;     /* 尽量一行显示标题 */
     overflow: hidden;
+    text-overflow: ellipsis; /* 超出显示省略号 */
+}
+
+html[lang="ja"] .logo-area .subtitle {
+    font-size: 1rem;
+    white-space: nowrap;      
+    overflow: hidden;
+    text-overflow: ellipsis; /* 超出显示省略号 */
 }
     /* ===== 新增代码结束 ===== */
     </style>

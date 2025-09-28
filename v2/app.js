@@ -1,5 +1,5 @@
-// 第2课优化版 app.js - 搜索体验优化
-// 主要改进：更友好的用户提示、更好的错误处理、代码注释
+// 第2课优化版 app.js - 搜索体验优化（多语言支持整合版）
+// 主要改进：更友好的用户提示、更好的错误处理、以及对 data.json 的多语言字段支持
 
 let raw = [], view = [], activeSource = 'all';
 let searchEl, sourcesEl;
@@ -18,7 +18,7 @@ window.renderWithLanguage = renderWithLanguage;
 
 // 从URL参数获取当前语言，默认为中文
 const urlParams = new URLSearchParams(location.search);
-window.currentLang = urlParams.get('lang') || 'zh';
+window.currentLang = (urlParams.get('lang') || 'zh').toLowerCase();
 
 // 初始化应用
 init();
@@ -32,7 +32,7 @@ async function init() {
         raw = await loadData();
         window.currentData = raw;
 
-        // 渲染数据源选择器
+        // 渲染数据源选择器（先通过所有源）
         renderSources(['all', ...new Set(raw.map(x => x.source))]);
 
         // 绑定事件监听器
@@ -50,20 +50,15 @@ async function init() {
 
 /**
  * 加载数据文件
- * 支持GitHub Pages和本地开发环境
  */
 async function loadData() {
-    // 构建data.json的URL，确保在不同环境下正确工作
     let dataUrl;
     if (window.location.pathname.includes('/curated-gems/')) {
-        // GitHub Pages环境
         dataUrl = window.location.origin + '/curated-gems/data.json';
     } else {
-        // 本地开发环境
         dataUrl = './data.json';
     }
 
-    // 添加时间戳防止缓存
     const response = await fetch(dataUrl + '?_=' + Date.now(), {
         cache: 'no-store'
     });
@@ -81,10 +76,15 @@ async function loadData() {
 function mountControls() {
     const lang = window.currentLang || 'zh';
 
-    // 🔍 优化后的搜索框提示文字 - 更友好、更直观
-    const placeholder = lang === 'zh'
-        ? '🔍 这里可以搜索...'
-        : '🔍 you can search here...';
+    // 多语言占位文本（可以按需调整）
+    const placeholders = {
+        zh: '👋 想找什么好东西？',
+        en: '👋 What are you looking for?',
+        ja: '👋 何を探していますか？',
+        ko: '👋 무엇을 찾고 있나요?'
+    };
+
+    const placeholder = placeholders[lang] || placeholders['zh'];
 
     controlsEl.innerHTML = `
         <div class="controls">
@@ -93,7 +93,6 @@ function mountControls() {
         </div>
     `;
 
-    // 获取新创建的元素引用
     searchEl = $('#search');
     sourcesEl = $('#sources');
 }
@@ -102,103 +101,135 @@ function mountControls() {
  * 绑定事件监听器
  */
 function bind() {
-    // 搜索输入事件
-    searchEl.addEventListener('input', applyAndRender);
+    if (searchEl) searchEl.addEventListener('input', applyAndRender);
 
-    // 数据源筛选点击事件
-    sourcesEl.addEventListener('click', e => {
-        const target = e.target.closest('.tag');
-        if (!target) return;
+    if (sourcesEl) {
+        sourcesEl.addEventListener('click', e => {
+            const target = e.target.closest('.tag');
+            if (!target) return;
 
-        // 更新激活状态
-        [...sourcesEl.children].forEach(node => node.classList.remove('active'));
-        target.classList.add('active');
+            [...sourcesEl.children].forEach(node => node.classList.remove('active'));
+            target.classList.add('active');
 
-        // 更新激活的数据源
-        activeSource = target.dataset.source;
-
-        // 重新筛选和渲染
-        applyAndRender();
-    });
+            activeSource = target.dataset.source;
+            applyAndRender();
+        });
+    }
 }
 
 /**
- * 应用筛选条件并渲染结果
+ * 统一从 item 里读取语言字段
+ * base 例如 'title'、'summary'、'best_quote'
+ * 回退顺序： base_LANG -> base_en -> base -> ''（安全返回）
+ */
+function getField(item, base) {
+    const lang = window.currentLang || 'zh';
+    if (!item) return '';
+    const tryKeys = [
+        `${base}_${lang}`,
+        `${base}_en`,
+        `${base}`
+    ];
+    for (const k of tryKeys) {
+        if (k in item && item[k] != null) return item[k];
+    }
+    return '';
+}
+
+/**
+ * 读取 tags（数组），支持 tags_zh 等字段回退
+ */
+function getTags(item) {
+    const lang = window.currentLang || 'zh';
+    const tryKeys = [`tags_${lang}`, 'tags_en', 'tags'];
+    for (const k of tryKeys) {
+        if (k in item && Array.isArray(item[k])) return item[k];
+    }
+    return [];
+}
+
+/**
+ * 统计、过滤并渲染
  */
 function applyAndRender() {
-    const query = (searchEl.value || '').trim().toLowerCase();
+    const query = (searchEl?.value || '').trim().toLowerCase();
     const lang = window.currentLang || 'zh';
 
-    // 统计：当前搜索条件下，各数据源可见数量
+    // 统计当前搜索下各 source 的数量
     const counts = { all: 0 };
     for (const item of raw) {
-      const summaryField = (lang === 'zh' ? item.summary_zh : item.summary_en) || '';
-      const quoteField   = (lang === 'zh' ? item.best_quote_zh : item.best_quote_en) || '';
-      const titleField   = (lang === 'zh' ? (item.title_zh || item.title) : item.title) || '';
-      const tagsArr      = item.tags || [];
-    
-      const matchesQuery = !query ||
-        titleField.toLowerCase().includes(query) ||
-        summaryField.toLowerCase().includes(query) ||
-        quoteField.toLowerCase().includes(query) ||
-        tagsArr.some(tag => tag.toLowerCase().includes(query));
-    
-      if (matchesQuery) {
-        counts.all += 1;
-        const s = item.source || 'unknown';
-        counts[s] = (counts[s] || 0) + 1;
-      }
-    }
-    
-    window.__countsForCurrentQuery = counts;
-    // 筛选数据
-    view = raw.filter(item => {
-        // 根据语言选择对应字段
-        const summaryField = lang === 'zh' ? item.summary_zh : item.summary_en;
-        const quoteField = lang === 'zh' ? item.best_quote_zh : item.best_quote_en;
-        const titleField = lang === 'zh' ? (item.title_zh || item.title) : item.title;
+        const summaryField = String(getField(item, 'summary') || '');
+        const quoteField = String(getField(item, 'best_quote') || '');
+        const titleField = String(getField(item, 'title') || getField(item, 'title_en') || item.title || '');
+        const tagsArr = (getTags(item) || []).map(t => String(t || ''));
 
-        // 搜索匹配检查
         const matchesQuery = !query ||
-            titleField?.toLowerCase().includes(query) ||
-            summaryField?.toLowerCase().includes(query) ||
-            quoteField?.toLowerCase().includes(query) ||
-            (item.tags || []).some(tag => tag.toLowerCase().includes(query));
+            titleField.toLowerCase().includes(query) ||
+            summaryField.toLowerCase().includes(query) ||
+            quoteField.toLowerCase().includes(query) ||
+            tagsArr.some(tag => tag.toLowerCase().includes(query));
 
-        // 数据源匹配检查
+        if (matchesQuery) {
+            counts.all += 1;
+            const s = item.source || 'unknown';
+            counts[s] = (counts[s] || 0) + 1;
+        }
+    }
+    window.__countsForCurrentQuery = counts;
+
+    // 筛选
+    view = raw.filter(item => {
+        const titleField = String(getField(item, 'title') || item.title || '');
+        const summaryField = String(getField(item, 'summary') || '');
+        const quoteField = String(getField(item, 'best_quote') || '');
+        const tagsArr = (getTags(item) || []).map(t => String(t || ''));
+
+        const matchesQuery = !query ||
+            titleField.toLowerCase().includes(query) ||
+            summaryField.toLowerCase().includes(query) ||
+            quoteField.toLowerCase().includes(query) ||
+            tagsArr.some(tag => tag.toLowerCase().includes(query));
+
         const matchesSource = activeSource === 'all' || item.source === activeSource;
 
         return matchesQuery && matchesSource;
     });
 
-    // 渲染结果
     render(view);
     renderSources(['all', ...new Set(raw.map(x => x.source))]);
-    // 彩蛋：输入 magic 试试看
+
     if (query === 'magic') {
-      alert('✨ 哇！你发现了隐藏功能！');
+        // 彩蛋：保留
+        alert('✨ 哇！你发现了隐藏功能！');
     }
 }
 
 /**
- * 渲染数据源选择器
+ * 渲染数据源选择器（保留原样，但 "All" 文案本地化）
  */
 function renderSources(list) {
     const counts = window.__countsForCurrentQuery || { all: raw.length };
     const lang = window.currentLang || 'zh';
 
+    const allLabels = {
+        zh: `📚 全部 (${counts.all || 0})`,
+        en: `📚 All (${counts.all || 0})`,
+        ja: `📚 すべて (${counts.all || 0})`,
+        ko: `📚 전체 (${counts.all || 0})`
+    };
+
     sourcesEl.innerHTML = list.map(source => {
-        // 🌟 优化数据源显示文字
         const n = counts[source] || 0;
-        const displayText = source === 'all'
-          ? (lang === 'zh'
-              ? `📚 全部 (${n})`
-              : `📚 All (${n})`)
-          : `✨ ${source} (${n})`;
-
+        let displayText;
+        if (source === 'all') {
+            displayText = allLabels[lang] || allLabels['zh'];
+        } else {
+            // 非 "all"：显示源名（若需要本地化，可在 data.json 中添加 source_zh/source_en 等）
+            // 这里保持简单：直接显示 source 字符串并附带数量
+            displayText = `✨ ${source} (${n})`;
+        }
         const isActive = source === activeSource ? 'active' : '';
-
-        return `<span class="tag ${isActive}" data-source="${source}">${esc(displayText)}</span>`;
+        return `<span class="tag ${isActive}" data-source="${esc(source)}">${esc(displayText)}</span>`;
     }).join('');
 }
 
@@ -208,43 +239,41 @@ function renderSources(list) {
 function render(items) {
     const lang = window.currentLang || 'zh';
 
-    // 处理空结果情况
     if (!items.length) {
         listEl.innerHTML = '';
 
-        // 😅 优化后的空结果提示 - 更友好、提供建议
         const emptyTexts = {
-            zh: '😅 没有找到相关内容，换个关键词试试吧， 或许会有惊喜',
-            en: '😅 No relevant content found, try different keywords'
+            zh: '🤔 暂时没找到，换个词试试？或许有惊喜',
+            en: '🤔 Nothing so far — try a different word, maybe a surprise awaits.',
+            ja: '🤔 見つかりませんでした。別のキーワードを試してみてください。',
+            ko: '🤔 아직 찾지 못했어요—다른 단어로 시도해보세요.'
         };
 
-        emptyEl.textContent = emptyTexts[lang];
+        emptyEl.textContent = emptyTexts[lang] || emptyTexts['zh'];
         emptyEl.classList.remove('hidden');
         return;
     }
 
-    // 隐藏空结果提示，显示文章列表
     emptyEl.classList.add('hidden');
     listEl.innerHTML = items.map(item => card(item, lang)).join('');
 }
 
 /**
- * 语言切换时重新渲染
+ * 语言切换时重新渲染（暴露给全局）
  */
 function renderWithLanguage(items, lang) {
-    // 更新当前语言
-    window.currentLang = lang;
+    window.currentLang = (lang || 'zh').toLowerCase();
 
-    // 更新搜索框提示文字
-    const placeholder = lang === 'zh'
-        ? '🔍 输入关键词搜索精彩内容...'
-        : '🔍 Enter keywords to search amazing content...';
+    // 更新搜索占位（多语言）
+    const placeholders = {
+        zh: '🔍 输入关键词搜索精彩内容...',
+        en: '🔍 Enter keywords to search amazing content...',
+        ja: '🔍 キーワードを入力して検索...',
+        ko: '🔍 키워드를 입력해 검색하세요...'
+    };
 
-    if (searchEl) {
-        searchEl.placeholder = placeholder;
-    }
+    if (searchEl) searchEl.placeholder = placeholders[window.currentLang] || placeholders['zh'];
 
-    // 重新应用当前筛选条件
     applyAndRender();
 }
 
@@ -252,27 +281,25 @@ function renderWithLanguage(items, lang) {
  * 生成文章卡片HTML
  */
 function card(item, lang = 'zh') {
-    // 根据语言选择对应字段
-    const tagsArray = lang === 'zh' ? (item.tags_zh || item.tags || []) : (item.tags || []);
+    const tagsArray = getTags(item);
     const tags = tagsArray.join(', ');
-    const title = lang === 'zh' ? (item.title_zh || item.title) : item.title;
-    const desc = lang === 'zh' ? (item.summary_zh || '') : (item.summary_en || '');
-    const quote = lang === 'zh' ? (item.best_quote_zh || '') : (item.best_quote_en || '');
+    const title = getField(item, 'title') || item.title || '';
+    const desc = getField(item, 'summary') || '';
+    const quote = getField(item, 'best_quote') || '';
 
-    // 引号样式
     const quoteWrapper = lang === 'zh' ? '「」' : '""';
-    const aiSummaryLabel = lang === 'zh' ? 'AI总结：' : 'AI Summary: ';
+    const aiSummaryLabel = lang === 'zh' ? 'AI总结：' : (lang === 'ja' ? 'AI要約：' : (lang === 'ko' ? 'AI 요약：' : 'AI Summary: '));
 
     return `
         <article class="card">
             <h3>
-                <a href="${item.link}" target="_blank" rel="noopener">
+                <a href="${esc(item.link || '#')}" target="_blank" rel="noopener">
                     ${esc(title)}
                 </a>
             </h3>
             ${desc ? `
                 <p>
-                    <span class="ai-label">${aiSummaryLabel}</span>
+                    <span class="ai-label">${esc(aiSummaryLabel)}</span>
                     ${esc(desc)}
                 </p>
             ` : ''}
@@ -293,7 +320,7 @@ function card(item, lang = 'zh') {
  */
 function showError(message) {
     const lang = window.currentLang || 'zh';
-    const errorPrefix = lang === 'zh' ? '❌ 错误：' : '❌ Error: ';
+    const errorPrefix = lang === 'zh' ? '❌ 错误：' : (lang === 'ja' ? '❌ エラー：' : (lang === 'ko' ? '❌ 오류：' : '❌ Error: '));
 
     if (listEl && emptyEl) {
         listEl.innerHTML = '';
@@ -303,10 +330,10 @@ function showError(message) {
 }
 
 /**
- * HTML转义函数，防止XSS攻击
+ * HTML 转义
  */
 function esc(str) {
-    return String(str || '').replace(/[&<>"']/g, match => ({
+    return String(str || '').replace(/[&<>"']/g, match => ( {
         '&': '&amp;',
         '<': '&lt;',
         '>': '&gt;',
@@ -316,9 +343,8 @@ function esc(str) {
 }
 
 // 调试信息
-console.log('🚀 第2课优化版 app.js 已加载');
-console.log('📝 主要改进：');
-console.log('   - 🔍 更友好的搜索提示文字');
-console.log('   - 😅 更温馨的空结果提示');
-console.log('   - ✨ 优化的数据源显示');
-console.log('   - 📚 更好的代码注释和错误处理');
+console.log('🚀 第2课优化版 app.js（多语言整合）已加载');
+console.log('📝 主要改动：');
+console.log('   - 支持 data.json 中的 title_zh/title_en/...、summary_zh/...、best_quote_zh/...、tags_zh 等字段');
+console.log('   - 本地化搜索占位与空结果提示');
+console.log('   - 兼容回退（缺字段时回退到 en 或无后缀字段）');

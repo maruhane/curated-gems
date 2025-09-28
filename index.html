@@ -66,26 +66,36 @@
         background-color: #f9f9f9;
     }
 
-    /* ===== 新增的布局修复代码 ===== */
-    .header-main {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-    }
+    /* ===== 这是最终解决方案，请用它替换掉上次的布局代码 ===== */
 
-    .header-controls {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        flex-shrink: 0;
-    }
-    
-    .logo-area {
-        flex-grow: 1;
-    }
-    /* ===== 新增代码结束 ===== */
-    </style>    
+/* 1. 设置头部主容器为 Flex 布局 */
+.header-main {
+    display: flex;
+    justify-content: space-between; /* 两端对齐 */
+    align-items: flex-start;        /* 顶部对齐 (处理副标题换行后更美观) */
+    gap: 20px;                      /* 左右内容块的间距 */
+}
+
+/* 2. 设置左侧标题区域，让其能灵活伸缩 */
+.logo-area {
+    flex-grow: 1; /* 允许它占据所有剩余空间 */
+    min-width: 0; /* 【关键修复】允许此区域在必要时收缩，这是让内部文字换行的前提 */
+}
+
+/* 3. 确保右侧控制区宽度稳定 */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0; /* 【关键】禁止此区域收缩，确保它永远不会被挤下去 */
+    padding-top: 5px; /* 微调，让右侧控件和左侧主标题视觉上更对齐 */
+}
+
+/* 4. 强制副标题可以正常换行 */
+.logo-area .subtitle {
+    white-space: normal !important;   /* 【关键修复】覆盖全局样式，允许文字自动换行 */
+    word-break: break-word !important;/* 确保长单词也能被正确断开 */
+}
 
 <body>
     <header class="container">

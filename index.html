@@ -97,42 +97,65 @@
     word-break: break-word !important;/* 确保长单词也能被正确断开 */
 }
 
-/* ===== 【关键新增】日语竖排适配 ===== */
+/* ===== 统一横排（替代原来的日语竖排规则） ===== */
 
-/* 5. 针对日语环境的 H1 标题 */
-html[lang="ja"] .logo-area h1 {
-    /* 启用竖排书写模式：从右到左，从上到下 */
-    writing-mode: vertical-rl;
-    /* 确保竖排文本在容器内能正常显示，不被挤压 */
-    white-space: nowrap;
-    /* 调整竖排标题的字号，使其视觉上更协调 */
-    font-size: 40px; /* 您可能需要根据实际情况微调此值 */
-    /* 调整标题和副标题的间距 */
-    margin-right: 15px; /* 标题与副标题之间的横向间距 */
-    line-height: 1.2;
+/* 保证 header 一行内左右对齐，不换行 */
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   /* 改为居中对齐，避免控件掉到下一行 */
+    gap: 20px;
+    flex-wrap: nowrap;     /* 关键：禁止换行，确保右侧控件不会被挤到下方 */
 }
 
-/* 6. 针对日语环境的副标题（让它保持在标题的左侧） */
-html[lang="ja"] .logo-area .subtitle {
-    /* 将 logo-area 内部设置为 Flex 容器 */
+/* 左侧标题区域：垂直堆叠标题 + 副标题，允许缩小换行 */
+.logo-area {
+    flex: 1 1 auto; /* 允许伸缩，占据剩余空间 */
+    min-width: 0;   /* 允许内部内容换行而不撑破布局 */
     display: flex;
-    /* 主轴方向设置为横向 (默认) */
-    flex-direction: row;
-    /* 元素顶部对齐 */
+    flex-direction: column;
     align-items: flex-start;
-    /* 副标题的样式调整 */
-    font-size: 16px; /* 您可能需要根据实际情况微调此值 */
-    padding-top: 10px; /* 微调副标题相对顶部的位置，使其与竖排标题底部对齐 */
 }
 
-/* 7. 调整日语环境下 .logo-area 的 Flex 布局，以容纳竖排 H1 和横排副标题 */
-html[lang="ja"] .logo-area {
-    /* 改变 logo-area 自身的 display 属性来容纳竖排的 h1 */
-    display: flex;
-    flex-direction: row; /* 横向排列 H1 和 P */
-    align-items: flex-start; /* 顶部对齐 */
+/* 标题：强制横排（覆盖任何写法模式），并允许换行 */
+.logo-area h1 {
+    writing-mode: horizontal-tb !important; /* 确保所有语言都是横排 */
+    white-space: normal !important;
+    word-break: break-word;
+    margin: 0;
+    font-size: 28px; /* 如需更大/小可调整 */
+    line-height: 1.1;
 }
-/* ===== 新增代码结束 ===== */
+
+/* 副标题在标题下方，保持正常换行 */
+.logo-area .subtitle {
+    margin: 6px 0 0 0;
+    font-size: 14px;
+    white-space: normal !important;
+}
+
+/* 右侧控件保持固定宽度并禁止收缩（已接近你原来的写法） */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+    padding-top: 0; /* 垂直居中，不需要额外上内边距 */
+}
+
+/* 小屏幕友好：窄屏时改为垂直堆叠，避免内容过小 */
+@media (max-width: 760px) {
+    .header-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-controls {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+}
+
 </style>
 <body>
     <header class="container">

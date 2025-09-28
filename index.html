@@ -7,8 +7,8 @@
     <title data-zh="羽的文选" data-en="FeatherJemila’s Picks" data-ja="はねのセレクション" data-ko="수우의 컬렉션">羽的文选</title>
     <link rel="stylesheet" href="./styles.css" />
     
-   <style>
-    /* 原有的下拉菜单样式 */
+    <style>
+    /* 原有下拉菜单样式 */
     .lang-dropdown {
         position: relative;
         display: inline-block;
@@ -66,51 +66,67 @@
         background-color: #f9f9f9;
     }
 
-    /* ===== 这是最终解决方案，请用它替换掉上次的布局代码 ===== */
-/* 1. 设置头部主容器为 Flex 布局 */
-.header-main {
-    display: flex;
-    justify-content: space-between; /* 两端对齐 */
-    align-items: flex-start;        /* 顶部对齐 (处理副标题换行后更美观) */
-    gap: 20px;                      /* 左右内容块的间距 */
-}
-/* 2. 设置左侧标题区域，让其能灵活伸缩 */
-.logo-area {
-    flex-grow: 1; /* 允许它占据所有剩余空间 */
-    min-width: 0; /* 【关键修复】允许此区域在必要时收缩，这是让内部文字换行的前提 */
-}
-/* 3. 确保右侧控制区宽度稳定 */
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-shrink: 0; /* 【关键】禁止此区域收缩，确保它永远不会被挤下去 */
-    padding-top: 5px; /* 微调，让右侧控件和左侧主标题视觉上更对齐 */
-}
-/* 4. 强制副标题可以正常换行 */
-.logo-area .subtitle {
-    white-space: normal !important;   /* 【关键修复】覆盖全局样式，允许文字自动换行 */
-    word-break: break-word !important;/* 确保长单词也能被正确断开 */
-}
-/* ===== 日语标题优化，仅针对 lang="ja" ===== */
-html[lang="ja"] .logo-area h1 {
-    white-space: normal;        /* 自动换行 */
-    word-break: keep-all;       /* 尽量不拆词 */
-    font-size: 2rem;            /* 调整到和中文/英文一致 */
-    line-height: 1.2;           /* 行高微调，使副标题间距自然 */
-}
-/* 日语副标题 P */
-html[lang="ja"] .logo-area .subtitle {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;     /* 最多两行显示 */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: normal;
-    line-height: 1.2;
-}
-    /* ===== 新增代码结束 ===== */
+    /* ===== 布局优化 ===== */
+    .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .logo-area {
+        flex: 1 1 auto; /* 放宽弹性，允许换行 */
+        min-width: 0;
+        margin-right: 15px; /* 避免被右侧控件遮挡 */
+    }
+
+    .logo-area h1 {
+        white-space: normal !important;
+        word-break: break-word !important;
+        line-height: 1.2;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .logo-area .subtitle {
+        display: block;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        line-height: 1.3;
+        margin-top: 4px;
+        font-size: 1rem;
+    }
+
+    .header-controls {
+        flex-shrink: 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px; /* 缩小间距 */
+    }
+
+    .version-tabs button {
+        padding: 4px 8px; /* 减小按钮占地 */
+        font-size: 13px;
+    }
+
+    /* 日语标题和副标题微调 */
+    html[lang="ja"] .logo-area h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    html[lang="ja"] .logo-area .subtitle {
+        font-size: 1rem;
+        line-height: 1.3;
+        display: block;
+        white-space: normal;
+        word-break: break-word;
+        overflow: visible;
+    }
+
     </style>
-    </head>
+</head>
 
 <body>
     <header class="container">
@@ -120,7 +136,6 @@ html[lang="ja"] .logo-area .subtitle {
                 <p class="subtitle" data-zh="精选世界的片刻" data-en="Curating Moments of the World" data-ja="世界のひとときをセレクト" data-ko="세상의 순간을 담다">精选世界的片刻</p>
             </div>
             <div class="header-controls">
-                
                 <div class="control-item lang-dropdown">
                     <button id="lang-dropdown-toggle">中</button>
                     <div id="lang-dropdown-content">
@@ -184,18 +199,15 @@ html[lang="ja"] .logo-area .subtitle {
             const hintEl = document.getElementById('hint');
             if (hintEl) hintEl.textContent = hintTexts[lang] || hintTexts['zh'];
             
-            // 更新语言按钮高亮
             document.querySelectorAll('.lang-btn').forEach(btn=>{
                 btn.classList.toggle('active', btn.dataset.lang === lang);
             });
             
-            // === 新增：更新下拉菜单主按钮的文本 ===
             const toggleBtn = document.getElementById('lang-dropdown-toggle');
             if (toggleBtn) {
                 const langTextMap = { zh: '中', en: 'EN', ja: '日本語', ko: '한국어' };
                 toggleBtn.textContent = langTextMap[lang] || '中';
             }
-            // === 新增结束 ===
 
             if (window.currentData && typeof window.renderWithLanguage === 'function') {
                 window.renderWithLanguage(window.currentData, lang);
@@ -208,10 +220,7 @@ html[lang="ja"] .logo-area .subtitle {
             btn.addEventListener('click', () => {
                 const newLang = btn.dataset.lang;
                 if (!newLang || newLang === currentLang) return;
-
-                // === 新增：选择后关闭下拉菜单 ===
                 document.querySelector('.lang-dropdown').classList.remove('show');
-
                 if (typeof window.changeLang === 'function') {
                     window.changeLang(newLang);
                     updateLanguage(newLang);
@@ -236,24 +245,20 @@ html[lang="ja"] .logo-area .subtitle {
             });
         });
         
-        // === 新增：下拉菜单的开关逻辑 ===
         const dropdownContainer = document.querySelector('.lang-dropdown');
         const toggleBtn = document.getElementById('lang-dropdown-toggle');
 
         if (toggleBtn && dropdownContainer) {
             toggleBtn.addEventListener('click', (event) => {
-                // 阻止事件冒泡，防止触发下面的 window 点击事件
                 event.stopPropagation();
                 dropdownContainer.classList.toggle('show');
             });
-            // 当点击页面其他地方时，关闭下拉菜单
             window.addEventListener('click', () => {
                 if (dropdownContainer.classList.contains('show')) {
                     dropdownContainer.classList.remove('show');
                 }
             });
         }
-        // === 新增结束 ===
 
         (function loadVersionScript() {
             const s = document.createElement("script");

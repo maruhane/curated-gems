@@ -92,12 +92,24 @@
     white-space: normal !important;   /* 【关键修复】覆盖全局样式，允许文字自动换行 */
     word-break: break-word !important;/* 确保长单词也能被正确断开 */
 }
-/* 针对日语优化 */
+/* ===== 日语标题优化，仅针对 lang="ja" ===== */
+
+/* 日语主标题 H1 */
+html[lang="ja"] .logo-area h1 {
+    white-space: normal;        /* 允许换行 */
+    word-break: keep-all;       /* 尽量保持词完整，不随意断开 */
+    font-size: 1.5rem;          /* 调整大小，让一行显示更自然 */
+    line-height: 1.3;           /* 调整行距 */
+}
+
+/* 日语副标题 P */
 html[lang="ja"] .logo-area .subtitle {
-    font-size: 1rem;
-    white-space: nowrap;      
+    display: -webkit-box;
+    -webkit-line-clamp: 2;     /* 最多两行显示 */
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+    word-break: normal;
+    line-height: 1.2;
 }
     /* ===== 新增代码结束 ===== */
     </style>

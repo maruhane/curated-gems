@@ -8,68 +8,84 @@
     <link rel="stylesheet" href="./styles.css" />
     
     <style>
-        .lang-dropdown {
-            position: relative;
-            display: inline-block;
-        }
+    /* 原有的下拉菜单样式 */
+    .lang-dropdown {
+        position: relative;
+        display: inline-block;
+    }
 
-        #lang-dropdown-toggle {
-            /* 这是您想要的圆形按钮样式 */
-            background-color: #f0f0f0;
-            color: #333;
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 20px; /* 圆角样式 */
-            cursor: pointer;
-            font-size: 14px;
-            min-width: 60px;
-            text-align: center;
-            user-select: none; /* 防止点击时选中文本 */
-        }
+    #lang-dropdown-toggle {
+        background-color: #f0f0f0;
+        color: #333;
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+        min-width: 60px;
+        text-align: center;
+        user-select: none;
+    }
 
-        #lang-dropdown-content {
-            display: none; /* 默认隐藏 */
-            position: absolute;
-            background-color: white;
-            min-width: 120px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
-            z-index: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 5px;
-            right: 0; /* 让菜单靠右对齐 */
-        }
+    #lang-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 120px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+        z-index: 1;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 5px;
+        right: 0;
+    }
 
-        /* 这个 'show' 类由 JS 添加，用于显示下拉菜单 */
-        .lang-dropdown.show #lang-dropdown-content {
-            display: block;
-        }
+    .lang-dropdown.show #lang-dropdown-content {
+        display: block;
+    }
 
-        #lang-dropdown-content .lang-btn {
-            color: black;
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-            width: 100%;
-            text-align: left;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        /* 高亮当前选中的语言 */
-        #lang-dropdown-content .lang-btn.active {
-            font-weight: bold;
-            background-color: #f0f0f0; 
-        }
+    #lang-dropdown-content .lang-btn {
+        color: black;
+        padding: 10px 15px;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    #lang-dropdown-content .lang-btn.active {
+        font-weight: bold;
+        background-color: #f0f0f0; 
+    }
 
-        /* 鼠标悬停在选项上时的效果 */
-        #lang-dropdown-content .lang-btn:hover:not(.active) {
-            background-color: #f9f9f9;
-        }
-    </style>
-    </head>
+    #lang-dropdown-content .lang-btn:hover:not(.active) {
+        background-color: #f9f9f9;
+    }
+
+    /* ===== 新增的布局修复代码 ===== */
+    .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-shrink: 0;
+    }
+    
+    .logo-area {
+        flex-grow: 1;
+    }
+    /* ===== 新增代码结束 ===== */
+    </style>    
 
 <body>
     <header class="container">

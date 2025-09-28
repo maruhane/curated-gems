@@ -7,7 +7,7 @@
     <title data-zh="羽的文选" data-en="Jemila’s Picks" data-ja="羽のセレクション" data-ko="수우의 컬렉션">羽的文选</title>
     <link rel="stylesheet" href="./styles.css" />
     
-   <style>
+  <style>
 /* ============= 下拉菜单样式（保留原样） ============= */
 .lang-dropdown {
     position: relative;
@@ -66,7 +66,7 @@
     background-color: #f9f9f9;
 }
 
-/* ============= 核心布局（统一横排，并尽量不改字号） ============= */
+/* ============= 核心布局（统一横排，并尽量不改字号/大小写） ============= */
 
 /* 确保 header 一行内左右对齐，不换行（关键） */
 .header-main {
@@ -77,7 +77,7 @@
     flex-wrap: nowrap;     /* 禁止换行，保持标题与右侧控件在同一行 */
 }
 
-/* 左侧标题区域：竖直堆叠标题 + 副标题，允许内部换行，且不在此处改变 font-size */
+/* 左侧标题区域：竖直堆叠标题 + 副标题，允许内部换行，不在此处改变字体大小或风格 */
 .logo-area {
     flex: 1 1 auto; /* 允许伸缩，占据剩余空间 */
     min-width: 0;   /* 允许内部文字换行而不撑破布局 */
@@ -86,21 +86,30 @@
     align-items: flex-start;
 }
 
-/* 标题：强制横排（覆盖可能残留的竖排规则），但不要设置 font-size */
+/* 标题：强制横排（覆盖可能残留的竖排规则），但不设置 font-size 等以保留原样 */
 .logo-area h1 {
-    writing-mode: horizontal-tb !important; /* 确保所有语言横排 */
-    white-space: normal !important;         /* 默认允许换行（日语单独处理） */
+    writing-mode: horizontal-tb !important; /* 确保横排 */
+    white-space: normal !important;         /* 默认允许换行（但日语另行处理） */
     word-break: break-word;
     margin: 0;
     line-height: 1.1;
-    /* 注意：刻意不设置 font-size，以免影响各语言已有的显示大小 */
+
+    /* **关键：不更改字体属性，确保恢复原始字体大小与粗细** */
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-transform: none !important; /* 禁止被强制转小写/大写 */
 }
 
-/* 副标题：保持正常换行和继承字号 */
+/* 副标题：保持正常换行和继承字号、禁止大小写转换 */
 .logo-area .subtitle {
     margin: 6px 0 0 0;
     white-space: normal !important;
     word-break: break-word;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    text-transform: none !important;
 }
 
 /* 右侧控件保持固定布局，不收缩，避免被挤下去 */
@@ -108,12 +117,12 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-shrink: 0; /* 不允许右侧收缩到下一行 */
+    flex-shrink: 0; /* 不允许右侧控缩到下一行 */
     padding-top: 0;
 }
 
 /* ============= 日语专用：单行保护（避免被拆成两行），但不改字号 ============= */
-/* 仅在 html[lang="ja"] 时启用：让标题与副标题保持单行，超出显示省略号 */
+/* 仅在 html[lang="ja"] 时启用：让标题与副标题尽量保持一行，超出用省略号处理 */
 html[lang="ja"] .logo-area h1,
 html[lang="ja"] .logo-area .subtitle {
     white-space: nowrap;
@@ -134,18 +143,18 @@ html[lang="ja"] .logo-area .subtitle {
     }
 }
 
-/* ============= 兼容补充（防止其他规则影响标题大小或写排） ============= */
-/* 如果页面某处有强规则设置全局 writing-mode 或 font-size，优先保证 h1 恢复默认横排与继承字号 */
+/* ============= 兼容补充：防止外部样式把标题变小或转小写 ============= */
+/* 额外保证：如果有强规则影响 writing-mode 或 text-transform，则以此为准 */
 .logo-area h1,
 .logo-area .subtitle {
-    /* 不覆写字体族或字号，保持站点主样式的控制权 */
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
+    writing-mode: horizontal-tb !important;
+    text-transform: none !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
 }
-
-/* 结束 */
     </style>
+
 
 <body>
     <header class="container">
